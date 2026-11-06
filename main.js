@@ -3,81 +3,59 @@
   "use strict";
 
   /* ------------------------------------------------------------
-     CARDÁPIO
-     Edite os itens aqui. "preco" é opcional: deixe null para
-     esconder. "foto" aponta para assets/img/cardapio/.
-     Itens abaixo foram tirados dos posts do Instagram; descrições
-     e preços devem ser confirmados com a casa.
+     CARDÁPIO (dados em cardapio.js)
      ------------------------------------------------------------ */
-  const CARDAPIO = [
-    { cat: "cafes",   nome: "Café autoral",        desc: "Criações exclusivas da casa — pergunte qual é a da vez.", preco: null, foto: "cafe-autoral.jpg" },
-    { cat: "cafes",   nome: "Cafés especiais",     desc: "Espresso, coado e bebidas com leite preparados com grãos selecionados.", preco: null, foto: "cafes.jpg" },
-    { cat: "toasts",  nome: "Toast de costela",    desc: "Pão tostado, costela desfiada e queijo derretido.", preco: null, foto: "toast-costela.jpg" },
-    { cat: "toasts",  nome: "Toast Cartola",       desc: "A clássica combinação da cartola em versão toast.", preco: null, foto: "toast-cartola.jpg" },
-    { cat: "lanches", nome: "Choripan",            desc: "Pão, linguiça grelhada e molho da casa.", preco: null, foto: "choripan.jpg" },
-    { cat: "doces",   nome: "Mille",               desc: "Camadas de massa e creme, um dos queridinhos da vitrine.", preco: null, foto: "mille.jpg" },
-    { cat: "doces",   nome: "Tortinha de chocolate", desc: "Base crocante, chocolate e cobertura cremosa.", preco: null, foto: "tortinha-chocolate.jpg" },
-    { cat: "saladas", nome: "Saladas da casa",     desc: "Opções leves e frescas — confira as do dia nos destaques.", preco: null, foto: "saladas.jpg" },
-  ];
-
-  const LABEL = { cafes: "Café", toasts: "Toast", lanches: "Lanche", doces: "Doce", saladas: "Salada" };
   const brl = (v) => v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+  const esc = (t) => t.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const DATA = window.CARDAPIO || [];
+  const tabs = document.getElementById("menu-tabs");
+  const panel = document.getElementById("menu-panel");
 
-  /* Placeholder com padrão botânico enquanto a foto não existe */
-  function fallback(img) {
-    const ph = document.createElement("div");
-    ph.className = "ph";
-    ph.setAttribute("role", "img");
-    ph.setAttribute("aria-label", img.alt || "");
-    ph.textContent = img.dataset.fallback || "";
-    img.replaceWith(ph);
-  }
-  function watchImg(img) {
-    if (img.complete && img.naturalWidth === 0) fallback(img);
-    else img.addEventListener("error", () => fallback(img), { once: true });
-  }
-
-  const grid = document.getElementById("menu-grid");
-  function renderMenu(filter) {
-    const items = filter === "todos" ? CARDAPIO : CARDAPIO.filter((i) => i.cat === filter);
-    grid.innerHTML = "";
-    items.forEach((item, idx) => {
-      const card = document.createElement("article");
-      card.className = "dish";
-      card.style.animationDelay = `${idx * 40}ms`;
-      card.innerHTML = `
-        <div class="dish-media">
-          <img src="assets/img/cardapio/${item.foto}" alt="${item.nome}" loading="lazy" width="640" height="480" data-fallback="${item.nome}">
-        </div>
-        <div class="dish-body">
-          <span class="dish-tag">${LABEL[item.cat]}</span>
-          <h3>${item.nome}</h3>
-          <p>${item.desc}</p>
-          ${item.preco != null ? `<span class="dish-price">${brl(item.preco)}</span>` : ""}
-        </div>`;
-      grid.appendChild(card);
-      watchImg(card.querySelector("img"));
-    });
+  function renderSecao(sec) {
+    panel.setAttribute("aria-labelledby", `tab-${sec.id}`);
+    panel.innerHTML = (sec.nota ? `<p class="menu-sec-note">${esc(sec.nota)}</p>` : "") +
+      `<div class="menu-cols">` +
+      sec.grupos.map((g) => `
+        <section class="menu-group${g.destaque ? " is-featured" : ""}">
+          <h3>${esc(g.titulo)}</h3>
+          <ul>
+            ${g.itens.map(([nome, desc, preco]) => `
+              <li>
+                <div class="mi-line"><span class="mi-name">${esc(nome)}</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">${brl(preco)}</span></div>
+                ${desc ? `<p class="mi-desc">${esc(desc)}</p>` : ""}
+              </li>`).join("")}
+          </ul>
+        </section>`).join("") +
+      `</div>`;
   }
 
-  const chips = [...document.querySelectorAll(".chip")];
-  chips.forEach((chip) => {
-    chip.addEventListener("click", () => {
-      chips.forEach((c) => c.setAttribute("aria-selected", String(c === chip)));
-      renderMenu(chip.dataset.filter);
-    });
+  DATA.forEach((sec, i) => {
+    const b = document.createElement("button");
+    b.className = "chip"; b.type = "button";
+    b.id = `tab-${sec.id}`;
+    b.setAttribute("role", "tab");
+    b.setAttribute("aria-controls", "menu-panel");
+    b.setAttribute("aria-selected", String(i === 0));
+    b.tabIndex = i === 0 ? 0 : -1;
+    b.textContent = sec.aba;
+    b.addEventListener("click", () => select(i));
+    tabs.appendChild(b);
   });
-  // setas do teclado entre as categorias
-  document.querySelector(".chips").addEventListener("keydown", (e) => {
+  const chips = [...tabs.children];
+  function select(i, focus) {
+    chips.forEach((c, j) => { c.setAttribute("aria-selected", String(i === j)); c.tabIndex = i === j ? 0 : -1; });
+    if (focus) chips[i].focus();
+    renderSecao(DATA[i]);
+  }
+  tabs.addEventListener("keydown", (e) => {
     const i = chips.indexOf(document.activeElement);
-    if (i < 0 || !["ArrowRight", "ArrowLeft"].includes(e.key)) return;
+    if (i < 0) return;
+    const map = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: chips.length - 1 };
+    if (!(e.key in map)) return;
     e.preventDefault();
-    const next = chips[(i + (e.key === "ArrowRight" ? 1 : chips.length - 1)) % chips.length];
-    next.focus(); next.click();
+    select((map[e.key] + chips.length) % chips.length, true);
   });
-  renderMenu("todos");
-
-  document.querySelectorAll("img[data-fallback]").forEach(watchImg);
+  if (DATA.length) select(0);
 
   /* ------------------------------------------------------------
      ABERTO AGORA? (Qua–Dom, 10h–18h30, horário de São Paulo)
@@ -150,7 +128,7 @@
 
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (!reduce && "IntersectionObserver" in window) {
-    const targets = document.querySelectorAll(".section-head, .espaco-copy, .espaco-media, .atelie-grid > *, .gallery figure, .reviews-card, .visite-grid > *");
+    const targets = document.querySelectorAll(".section-head, .espaco-copy, .espaco-media, .atelie-card, .favs .fav, .gallery figure, .reviews-card, .visite-grid > *");
     const io = new IntersectionObserver((entries) => {
       entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } });
     }, { rootMargin: "0px 0px -10% 0px" });

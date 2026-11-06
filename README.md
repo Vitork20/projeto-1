@@ -2,26 +2,36 @@
 
 Site estático (HTML + CSS + JS puro, sem build). Abra `index.html` no navegador ou publique a pasta em qualquer hospedagem estática (GitHub Pages, Netlify, Vercel).
 
-## Antes de publicar — pendências reais
+| Arquivo | O que é |
+|---|---|
+| `index.html` | Estrutura e textos |
+| `styles.css` | Visual (tokens de cor no topo) |
+| `cardapio.js` | **Cardápio completo** — edite preços e itens aqui |
+| `main.js` | Abas do cardápio, status aberto/fechado, menu mobile, animações |
+| `assets/img/logo.png` | Logomarca (480 px, recortada da arte oficial) |
+| `assets/img/fotos/` | Fotos do salão, ateliê e pratos |
 
-1. **Logomarca original.** `assets/img/logo.png` foi recortada de um print do Instagram (≈75 px ampliados) e fica borrada em telas retina. Substitua pelo arquivo original (PNG transparente ou SVG, ≥ 512 px) mantendo o mesmo nome.
-2. **Fotos.** Enquanto não existirem, o site mostra um placeholder verde com o nome da foto. Coloque os arquivos com estes nomes:
-   - `assets/img/fotos/`: `hero.jpg`, `neon.jpg`, `fachada.jpg`, `atelie.jpg`, `galeria-1.jpg` … `galeria-6.jpg`
-   - `assets/img/cardapio/`: `cafe-autoral.jpg`, `cafes.jpg`, `toast-costela.jpg`, `toast-cartola.jpg`, `choripan.jpg`, `mille.jpg`, `tortinha-chocolate.jpg`, `saladas.jpg`
-   Use JPG/WebP com ~1600 px no maior lado (hero) e ~800 px (demais).
-3. **Cardápio e preços.** Itens vieram dos posts do Instagram; descrições são genéricas e **sem preço**. Edite o array `CARDAPIO` no topo de `main.js` (`preco: 24.9` exibe "R$ 24,90").
-4. **Horários.** Quarta a domingo, 10h–18h30 (bio + post "Aviso"). Se mudar, atualize a tabela em `index.html` e `OPEN_DAYS/OPEN/CLOSE` em `main.js`.
+## Pendências antes de publicar
+
+1. **Direitos das fotos.** As fotos foram recortadas de prints do Google Maps e do Instagram. Várias são de clientes (ex.: "Rosa Mon", jul/2024), não da casa. Para uso comercial, substitua por fotos próprias do Terrarium ou obtenha autorização.
+2. **Resolução.** Exceto `atelie-estante.jpg` (985 px), as fotos têm ~280 px de largura e ficam levemente suaves em telas retina. Fotos originais com ≥ 1200 px resolvem; mantenha os mesmos nomes de arquivo.
+3. **Logo vetorial.** `logo.png` está boa até ~240 px de exibição. Um SVG/PNG original é melhor.
+4. **Divergências no cardápio** entre o cardápio impresso e o online (usei o impresso):
+   - Pão de Campanha Chapeado: adicional "requeijão R$ 2,00" (impresso) × "azeitonada ou salada R$ 2,00" (online)
+   - Quiche: 18 min (impresso) × 20 min (online)
+   - Parma Crocante: impresso inclui requeijão cremoso, mussarela ralada e tomate cereja
+   - Os cafés vieram só do cardápio online — conferir.
 
 ## Identidade
 
 | Token | Hex | Origem |
 |---|---|---|
-| `--creme` | `#EBC194` | disco da logomarca |
-| `--tinta` | `#4A2C14` | lettering da logo |
-| `--cereja` | `#7A3220` | grãos de café da logo |
-| `--leaf` | `#5F6E74` | folhas da logo |
+| `--creme` | `#DEC68A` | disco da logomarca |
+| `--tinta` | `#4E2A1E` | lettering da logo |
+| `--cereja` | `#BA5430` | grãos de café da logo / títulos do cardápio impresso |
+| `--leaf` | `#90AE9C` | folhas da logo |
 | `--floresta` / `--musgo` / `--oliva` | `#2F4410` / `#486018` / `#6C843C` | verdes dos posts |
-| `--terracota` | `#9C6024` | capas dos destaques |
+| `--terracota` | `#9A4222` | grão escurecido para texto pequeno (contraste AA) |
 
 Tipografia: Fraunces (títulos), Karla (texto), Caveat (notas manuscritas, como nos posts).
-Elemento-assinatura: molduras em arco no formato de redoma de terrário.
+Elemento-assinatura: molduras em arco no formato de redoma de terrário. Fundo de folhagem no cardápio, ecoando a arte impressa.
