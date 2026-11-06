@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Terrarium Café · São Caetano do Sul</title>
+  <meta name="description" content="Cafeteria com ambiente aconchegante, cafés exclusivos, receitas deliciosas e ateliê botânico. Rua João Migliani, 155 — São Caetano do Sul. Quarta a domingo, 10h às 18h30.">
+  <meta name="theme-color" content="#2F4410">
+  <meta property="og:title" content="Terrarium Café">
+  <meta property="og:description" content="Ambiente aconchegante, cafés exclusivos, receitas deliciosas e ateliê botânico em São Caetano do Sul.">
+  <meta property="og:image" content="assets/img/logo.png">
+  <link rel="icon" href="assets/img/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Karla:wght@400;500;600;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CafeOrCoffeeShop",
+    "name": "Terrarium Café",
+    "image": "assets/img/logo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua João Migliani, 155",
+      "addressLocality": "São Caetano do Sul",
+      "addressRegion": "SP",
+      "postalCode": "09570-020",
+      "addressCountry": "BR"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": -23.6278855, "longitude": -46.5573538 },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "10:00",
+      "closes": "18:30"
+    }],
+    "sameAs": ["https://www.instagram.com/terrariumcafescs/", "https://heylink.me/terrariumcafe"]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header" id="topo">
+    <div class="container header-inner">
+      <a class="brand" href="#topo" aria-label="Terrarium Café — início">
+        <img src="assets/img/logo.png" alt="Logomarca Terrarium Café" width="56" height="56">
+      </a>
+
+      <nav class="nav" aria-label="Principal">
+        <ul id="menu-principal">
+          <li><a href="#cardapio">Cardápio</a></li>
+          <li><a href="#espaco">O espaço</a></li>
+          <li><a href="#atelie">Ateliê botânico</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#visite">Visite</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a class="icon-btn" href="https://www.instagram.com/terrariumcafescs/" target="_blank" rel="noopener" aria-label="Instagram do Terrarium Café">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" class="fill"/></svg>
+        </a>
+        <a class="btn btn-primary btn-sm hide-mobile" href="https://www.google.com/maps/dir/?api=1&amp;destination=-23.6278855,-46.5573538" target="_blank" rel="noopener">Como chegar</a>
+        <button class="icon-btn menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menu">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="status" data-status aria-live="polite">
+            <span class="dot" aria-hidden="true"></span>
+            <span data-status-text>Quarta a domingo · 10h às 18h30</span>
+          </p>
+          <h1>Café é melhor quando é com&nbsp;gente.</h1>
+          <p class="lead">Ambiente aconchegante, cafés exclusivos, receitas deliciosas e um ateliê botânico no coração de São Caetano do Sul.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="#cardapio">Ver cardápio</a>
+            <a class="btn btn-ghost" href="#visite">Horários e endereço</a>
+          </div>
+          <p class="handnote" aria-hidden="true">quem ama café vem pro Terrarium</p>
+        </div>
+
+        <figure class="cloche cloche-hero">
+          <img src="assets/img/fotos/hero.jpg" alt="Salão do Terrarium Café com plantas e balcão" width="900" height="1100" fetchpriority="high" data-fallback="Foto do salão">
+        </figure>
+      </div>
+      <svg class="branch branch-hero" aria-hidden="true" viewBox="0 0 400 60"><use href="#ramo"/></svg>
+    </section>
+
+    <!-- CARDÁPIO -->
+    <section class="section menu" id="cardapio" aria-labelledby="cardapio-titulo">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Cardápio</p>
+          <h2 id="cardapio-titulo">Do café autoral ao toast de costela</h2>
+          <p>Receitas feitas na casa, com café especial na xícara. O cardápio muda com a estação — os destaques do Instagram mostram sempre a versão mais atual.</p>
+        </header>
+
+        <div class="chips" role="tablist" aria-label="Categorias do cardápio">
+          <button class="chip" role="tab" aria-selected="true" data-filter="todos">Tudo</button>
+          <button class="chip" role="tab" aria-selected="false" data-filter="cafes">Cafés</button>
+          <button class="chip" role="tab" aria-selected="false" data-filter="toasts">Toasts</button>
+          <button class="chip" role="tab" aria-selected="false" data-filter="lanches">Lanches</button>
+          <button class="chip" role="tab" aria-selected="false" data-filter="doces">Doces</button>
+          <button class="chip" role="tab" aria-selected="false" data-filter="saladas">Saladas</button>
+        </div>
+
+        <div class="menu-grid" id="menu-grid" role="tabpanel" aria-live="polite"></div>
+
+        <p class="menu-foot">
+          <a class="link-arrow" href="https://www.instagram.com/terrariumcafescs/" target="_blank" rel="noopener">Cardápio completo nos destaques do Instagram</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- O ESPAÇO -->
+    <section class="section espaco" id="espaco" aria-labelledby="espaco-titulo">
+      <div class="container espaco-grid">
+        <div class="espaco-copy">
+          <p class="eyebrow eyebrow-light">O espaço</p>
+          <h2 id="espaco-titulo">Um salão cheio de verde para ficar sem pressa</h2>
+          <p>Plantas por todo lado, luz natural e aquele neon que já virou ponto de foto. Venha para um café rápido ou para a tarde inteira.</p>
+          <ul class="features">
+            <li><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Ambiente aconchegante</li>
+            <li><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 9h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M17 11h1.5a2.5 2.5 0 0 1 0 5H17M8 3v3M12 3v3"/></svg>Cafés exclusivos</li>
+            <li><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"/></svg>Receitas deliciosas</li>
+            <li><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 21V11M12 11C12 7 9 4 4 4c0 4 3 7 8 7zM12 14c0-3 2.5-5.5 7-5.5 0 3-2.5 5.5-7 5.5z"/></svg>Ateliê botânico</li>
+          </ul>
+          <a class="btn btn-cream" href="#galeria">Ver fotos do espaço</a>
+        </div>
+        <div class="espaco-media">
+          <figure class="cloche">
+            <img src="assets/img/fotos/neon.jpg" alt="Neon “Quem ama café” na parede do Terrarium" width="800" height="1000" loading="lazy" data-fallback="Neon “Quem ama café”">
+          </figure>
+          <figure class="polaroid">
+            <img src="assets/img/fotos/fachada.jpg" alt="Fachada do Terrarium Café na Rua João Migliani" width="600" height="600" loading="lazy" data-fallback="Fachada">
+            <figcaption>Rua João Migliani, 155</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ATELIÊ -->
+    <section class="section atelie" id="atelie" aria-labelledby="atelie-titulo">
+      <div class="container atelie-grid">
+        <figure class="cloche cloche-wide">
+          <img src="assets/img/fotos/atelie.jpg" alt="Plantas do ateliê botânico do Terrarium" width="900" height="900" loading="lazy" data-fallback="Ateliê botânico">
+        </figure>
+        <div>
+          <p class="eyebrow">Ateliê botânico</p>
+          <h2 id="atelie-titulo">Terrarium não é só no nome</h2>
+          <p>Dentro do café funciona um ateliê botânico: um cantinho dedicado às plantas, que espalha verde pelo salão e faz parte da experiência de quem vem tomar um café.</p>
+          <p class="handnote handnote-dark" aria-hidden="true">pergunte no balcão</p>
+          <a class="link-arrow" href="https://www.instagram.com/terrariumcafescs/" target="_blank" rel="noopener">Acompanhe as novidades no Instagram</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIA -->
+    <section class="section galeria" id="galeria" aria-labelledby="galeria-titulo">
+      <div class="container">
+        <header class="section-head section-head-row">
+          <div>
+            <p class="eyebrow">Galeria</p>
+            <h2 id="galeria-titulo">Um pouco do nosso dia a dia</h2>
+          </div>
+          <a class="btn btn-primary" href="https://www.instagram.com/terrariumcafescs/" target="_blank" rel="noopener">@terrariumcafescs</a>
+        </header>
+        <div class="gallery">
+          <figure class="g1"><img src="assets/img/fotos/galeria-1.jpg" alt="Salão do café com plantas" loading="lazy" data-fallback="Salão"></figure>
+          <figure class="g2"><img src="assets/img/fotos/galeria-2.jpg" alt="Toast servido no Terrarium" loading="lazy" data-fallback="Toast"></figure>
+          <figure class="g3"><img src="assets/img/fotos/galeria-3.jpg" alt="Café autoral" loading="lazy" data-fallback="Café autoral"></figure>
+          <figure class="g4"><img src="assets/img/fotos/galeria-4.jpg" alt="Equipe do Terrarium Café" loading="lazy" data-fallback="Equipe"></figure>
+          <figure class="g5"><img src="assets/img/fotos/galeria-5.jpg" alt="Doces da vitrine" loading="lazy" data-fallback="Doces"></figure>
+          <figure class="g6"><img src="assets/img/fotos/galeria-6.jpg" alt="Plaquinha “Café é melhor quando é com gente”" loading="lazy" data-fallback="Café é melhor com gente"></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- AVALIAÇÕES -->
+    <section class="section reviews" aria-labelledby="reviews-titulo">
+      <div class="container reviews-card">
+        <img src="assets/img/logo.png" alt="" width="88" height="88" loading="lazy">
+        <div>
+          <h2 id="reviews-titulo">Já passou por aqui?</h2>
+          <p>Conte como foi a sua visita. Sua avaliação no Google ajuda mais gente a descobrir o Terrarium.</p>
+        </div>
+        <div class="reviews-actions">
+          <a class="btn btn-primary" href="https://www.google.com/maps/place/Terrarium+Caf%C3%A9/@-23.6278855,-46.5573538,19z" target="_blank" rel="noopener">Ver avaliações no Google</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISITE -->
+    <section class="section visite" id="visite" aria-labelledby="visite-titulo">
+      <div class="container visite-grid">
+        <div class="visite-info">
+          <p class="eyebrow eyebrow-light">Visite</p>
+          <h2 id="visite-titulo">Esperamos você para um café</h2>
+
+          <address>
+            Rua João Migliani, 155<br>
+            São Caetano do Sul · SP · 09570-020
+          </address>
+
+          <table class="hours" aria-label="Horário de funcionamento">
+            <tbody>
+              <tr data-day="1"><th scope="row">Segunda</th><td>Fechado</td></tr>
+              <tr data-day="2"><th scope="row">Terça</th><td>Fechado</td></tr>
+              <tr data-day="3"><th scope="row">Quarta</th><td>10h às 18h30</td></tr>
+              <tr data-day="4"><th scope="row">Quinta</th><td>10h às 18h30</td></tr>
+              <tr data-day="5"><th scope="row">Sexta</th><td>10h às 18h30</td></tr>
+              <tr data-day="6"><th scope="row">Sábado</th><td>10h às 18h30</td></tr>
+              <tr data-day="0"><th scope="row">Domingo</th><td>10h às 18h30</td></tr>
+            </tbody>
+          </table>
+
+          <div class="visite-ctas">
+            <a class="btn btn-cream" href="https://www.google.com/maps/dir/?api=1&amp;destination=-23.6278855,-46.5573538" target="_blank" rel="noopener">Traçar rota</a>
+            <a class="btn btn-outline-light" href="https://heylink.me/terrariumcafe" target="_blank" rel="noopener">Todos os links</a>
+          </div>
+        </div>
+        <div class="map">
+          <iframe title="Mapa com a localização do Terrarium Café" src="https://www.google.com/maps?q=-23.6278855,-46.5573538&amp;z=17&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <img src="assets/img/logo.png" alt="Terrarium Café" width="72" height="72" loading="lazy">
+      <p>Ambiente aconchegante · Cafés exclusivos · Receitas deliciosas · Ateliê botânico</p>
+      <p class="small">Rua João Migliani, 155 — São Caetano do Sul · <a href="https://www.instagram.com/terrariumcafescs/" target="_blank" rel="noopener">@terrariumcafescs</a></p>
+    </div>
+  </footer>
+
+  <!-- Ramo decorativo (galho de café), reutilizado como divisor -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="ramo" viewBox="0 0 400 60">
+      <path d="M10 40 C 90 20, 170 50, 250 30 S 370 20, 390 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      <g fill="var(--leaf)"><ellipse cx="80" cy="24" rx="16" ry="6" transform="rotate(-25 80 24)"/><ellipse cx="160" cy="48" rx="15" ry="5.5" transform="rotate(20 160 48)"/><ellipse cx="300" cy="16" rx="15" ry="5.5" transform="rotate(-15 300 16)"/></g>
+      <g fill="var(--cherry)"><circle cx="210" cy="36" r="5"/><circle cx="219" cy="31" r="4.5"/><circle cx="216" cy="41" r="4"/><circle cx="340" cy="28" r="4.5"/><circle cx="348" cy="23" r="4"/></g>
+    </symbol>
+  </svg>
+
+  <script src="main.js" defer></script>
+</body>
+</html>
