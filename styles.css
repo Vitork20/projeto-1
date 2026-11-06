@@ -209,6 +209,7 @@ p { margin: 0 0 1em; }
 .mi-name { font-weight: 600; color: var(--tinta); font-size: 1.05rem; }
 .mi-dots { flex: 1; min-width: 16px; border-bottom: 2px dotted #CDB98E; transform: translateY(-4px); }
 .mi-price { font-weight: 700; color: var(--tinta); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.mi-ask { font-weight: 600; font-size: .85rem; color: var(--terracota); white-space: normal; text-align: right; max-width: 11em; line-height: 1.2; }
 .mi-desc { margin: 2px 0 0; color: var(--muted); font-size: .92rem; line-height: 1.45; max-width: 52ch; }
 .menu-sec-note { margin: -8px 0 24px; text-align: center; font: 700 1.3rem/1.2 var(--font-hand); color: var(--musgo); }
 .menu-note { margin: 8px 0 0; text-align: center; font-size: .88rem; color: var(--muted); }

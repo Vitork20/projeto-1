@@ -11,16 +11,16 @@ Site estático (HTML + CSS + JS puro, sem build). Abra `index.html` no navegador
 | `assets/img/logo.png` | Logomarca (480 px, recortada da arte oficial) |
 | `assets/img/fotos/` | Fotos do salão, ateliê e pratos |
 
-## Pendências antes de publicar
+## Fotos
 
-1. **Direitos das fotos.** As fotos foram recortadas de prints do Google Maps e do Instagram. Várias são de clientes (ex.: "Rosa Mon", jul/2024), não da casa. Para uso comercial, substitua por fotos próprias do Terrarium ou obtenha autorização.
-2. **Resolução.** Exceto `atelie-estante.jpg` (985 px), as fotos têm ~280 px de largura e ficam levemente suaves em telas retina. Fotos originais com ≥ 1200 px resolvem; mantenha os mesmos nomes de arquivo.
-3. **Logo vetorial.** `logo.png` está boa até ~240 px de exibição. Um SVG/PNG original é melhor.
-4. **Divergências no cardápio** entre o cardápio impresso e o online (usei o impresso):
-   - Pão de Campanha Chapeado: adicional "requeijão R$ 2,00" (impresso) × "azeitonada ou salada R$ 2,00" (online)
-   - Quiche: 18 min (impresso) × 20 min (online)
-   - Parma Crocante: impresso inclui requeijão cremoso, mussarela ralada e tomate cereja
-   - Os cafés vieram só do cardápio online — conferir.
+As fotos têm autorização dos responsáveis. Foram recortadas dos prints do Google Maps/Instagram e ampliadas com **Real-ESRGAN x4plus** (IA de super-resolução). A IA reconstrói nitidez, mas não recupera detalhe real: para as fotos principais (hero e ateliê), fotos originais em alta continuam sendo a melhor opção. Mantenha os mesmos nomes de arquivo ao trocar.
+
+## Cardápio — regras
+
+- Em caso de dúvida de preço, use `preco: null` em `cardapio.js`: o site exibe **"Consultar com o atendente"**.
+- Hoje isso vale para o adicional do Pão de Campanha (o cardápio impresso diz "requeijão R$ 2,00"; o online, "azeitonada ou salada R$ 2,00").
+- Diferenças de descrição (não de preço) entre impresso e online — usei o impresso: Quiche (18 × 20 min de preparo) e ingredientes do Parma Crocante.
+- Os cafés vieram só do cardápio online.
 
 ## Identidade
 

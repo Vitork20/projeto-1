@@ -21,7 +21,7 @@
           <ul>
             ${g.itens.map(([nome, desc, preco]) => `
               <li>
-                <div class="mi-line"><span class="mi-name">${esc(nome)}</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">${brl(preco)}</span></div>
+                <div class="mi-line"><span class="mi-name">${esc(nome)}</span><span class="mi-dots" aria-hidden="true"></span>${preco == null ? `<span class="mi-price mi-ask">Consultar com o atendente</span>` : `<span class="mi-price">${brl(preco)}</span>`}</div>
                 ${desc ? `<p class="mi-desc">${esc(desc)}</p>` : ""}
               </li>`).join("")}
           </ul>

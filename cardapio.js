@@ -3,6 +3,8 @@
    Fonte: cardápio impresso + cardápio online (cafés).
    Para editar: altere nome / desc / preco. Grupos viram
    subtítulos dentro de cada aba.
+   preco: null  → exibe "Consultar com o atendente" (use em
+   caso de dúvida de preço).
    ========================================================= */
 window.CARDAPIO = [
   {
@@ -44,7 +46,8 @@ window.CARDAPIO = [
     grupos: [
       { titulo: "Menu de Brunch", itens: [
         ["Porção de Mini Pão de Queijo", "8 unidades (tempo de preparo 18 minutos)", 12],
-        ["Pão de Campanha Chapeado", "adicional de requeijão na entrada ou saída R$ 2,00", 10],
+        ["Pão de Campanha Chapeado", "", 10],
+        ["Adicional p/ Pão de Campanha", "requeijão, azeitonada ou salada", null],
         ["Torta Salgada – Frango ou Palmito", "tempo de preparo 20 minutos", 16],
         ["Quiche", "espinafre, alho poró ou quatro queijos (tempo de preparo 18 minutos)", 19],
         ["Waffles", "+2 acompanhamentos: mel, doce de leite, creme de avelã, banana, manteiga e geleia de morango ou damasco", 22],
