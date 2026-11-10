@@ -2,37 +2,45 @@
    Terrarium Café — paleta extraída da logomarca e do Instagram
    ========================================================= */
 :root {
-  /* Marca */
-  --creme: #DEC68A;        /* disco da logomarca */
+  /* Marca (da logomarca) */
+  --creme: #DEC68A;        /* disco da logo — aqui também o "latão" das molduras de vidro */
   --creme-claro: #F1E6C8;
-  --papel: #FBF6EC;        /* fundo geral */
-  --tinta: #4E2A1E;        /* traço/lettering da logo */
   --cereja: #BA5430;       /* grãos de café da logo */
   --leaf: #90AE9C;         /* folhas da logo */
-  --floresta: #2F4410;     /* verde escuro dos posts */
-  --musgo: #486018;        /* verde médio dos posts */
-  --oliva: #6C843C;        /* verde claro dos posts */
-  --terracota: #9A4222;    /* grão escurecido p/ texto pequeno (contraste AA) */
+
+  /* Terrário: verdes profundos + folhagem viva */
+  --noite: #0C1D13;        /* fundo geral */
+  --noite-2: #12291B;      /* painéis */
+  --noite-3: #081510;      /* trechos mais fundos */
+  --floresta: #0C1D13;
+  --musgo: #2C7434;        /* folha escura */
+  --oliva: #58A63E;        /* folha média */
+  --folha: #7CC653;        /* folha viva / ação */
+  --folha-clara: #A9DB7C;  /* destaques pequenos */
+  --papel: var(--noite);   /* nomes antigos mantidos: agora apontam para o tema escuro */
+  --tinta: #F2F0E6;        /* texto principal */
+  --tinta-logo: #4E2A1E;   /* marrom do lettering da logo (texto sobre creme) */
+  --destaque: var(--folha-clara);
 
   /* Semânticos */
-  --bg: var(--papel);
-  --fg: #2E1912;
-  --muted: #6B4E40;
-  --surface: #FFFFFF;
-  --border: #E8DABB;
-  --primary: var(--floresta);
-  --on-primary: #FBF5EA;
-  --ring: var(--terracota);
+  --bg: var(--noite);
+  --fg: #F2F0E6;
+  --muted: rgba(242, 240, 230, .72);
+  --surface: rgba(255, 255, 255, .06);
+  --border: rgba(255, 255, 255, .14);
+  --primary: var(--folha);
+  --on-primary: #0B1A10;
+  --ring: var(--creme);
 
   --font-display: "Fraunces", Georgia, serif;
   --font-body: "Karla", system-ui, sans-serif;
   --font-hand: "Caveat", cursive;
 
-  --folhas: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cg fill='none' stroke='%23DEC68A' stroke-opacity='.35' stroke-width='1.4' stroke-linecap='round'%3E%3Cpath d='M20 120 Q 50 80 60 30'/%3E%3Cpath d='M52 70 q-22 -4 -30 -20 q20 0 30 20z'/%3E%3Cpath d='M57 48 q18 -12 34 -6 q-14 14 -34 6z'/%3E%3Cpath d='M38 98 q-20 2 -30 -10 q18 -6 30 10z'/%3E%3Cpath d='M100 130 Q 115 105 128 90'/%3E%3Cpath d='M112 110 q12 -16 26 -14 q-8 16 -26 14z'/%3E%3C/g%3E%3C/svg%3E");
+  --folhas: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cg fill='none' stroke='%237CC653' stroke-opacity='.10' stroke-width='1.4' stroke-linecap='round'%3E%3Cpath d='M20 120 Q 50 80 60 30'/%3E%3Cpath d='M52 70 q-22 -4 -30 -20 q20 0 30 20z'/%3E%3Cpath d='M57 48 q18 -12 34 -6 q-14 14 -34 6z'/%3E%3Cpath d='M38 98 q-20 2 -30 -10 q18 -6 30 10z'/%3E%3Cpath d='M100 130 Q 115 105 128 90'/%3E%3Cpath d='M112 110 q12 -16 26 -14 q-8 16 -26 14z'/%3E%3C/g%3E%3C/svg%3E");
   --folhas-escuras: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cg fill='none' stroke='%234E2A1E' stroke-opacity='.07' stroke-width='1.4' stroke-linecap='round'%3E%3Cpath d='M20 120 Q 50 80 60 30'/%3E%3Cpath d='M52 70 q-22 -4 -30 -20 q20 0 30 20z'/%3E%3Cpath d='M57 48 q18 -12 34 -6 q-14 14 -34 6z'/%3E%3Cpath d='M38 98 q-20 2 -30 -10 q18 -6 30 10z'/%3E%3Cpath d='M100 130 Q 115 105 128 90'/%3E%3Cpath d='M112 110 q12 -16 26 -14 q-8 16 -26 14z'/%3E%3C/g%3E%3C/svg%3E");
   --radius: 18px;
   --radius-sm: 10px;
-  --shadow: 0 1px 2px rgba(74, 44, 20, .06), 0 10px 30px -12px rgba(74, 44, 20, .25);
+  --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 18px 44px -18px rgba(0, 0, 0, .7);
   --ease: cubic-bezier(.2, .7, .2, 1);
   --header-h: 76px;
 }
@@ -96,7 +104,7 @@ p { margin: 0 0 1em; }
 .link-arrow::after { content: "→"; transition: transform .2s var(--ease); }
 .link-arrow:hover::after { transform: translateX(4px); }
 
-.eyebrow { font: 700 .8rem/1 var(--font-body); letter-spacing: .16em; text-transform: uppercase; color: var(--terracota); margin-bottom: 1rem; }
+.eyebrow { font: 700 .8rem/1 var(--font-body); letter-spacing: .16em; text-transform: uppercase; color: var(--destaque); margin-bottom: 1rem; }
 .eyebrow-light { color: var(--creme); }
 .handnote { font: 700 1.6rem/1.1 var(--font-hand); color: var(--cereja); transform: rotate(-3deg); margin-top: 1.5rem; }
 
@@ -195,7 +203,7 @@ p { margin: 0 0 1em; }
 .hero-photo::after { /* funde a foto no verde da marca e garante leitura do texto */
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background:
-    linear-gradient(90deg, var(--floresta) 0%, rgba(47, 68, 16, .86) 9%, rgba(47, 68, 16, .38) 24%, transparent 42%),
+    linear-gradient(90deg, var(--floresta) 0%, rgba(12, 29, 19, .86) 9%, rgba(12, 29, 19, .38) 24%, transparent 42%),
     linear-gradient(0deg, rgba(20, 14, 8, .45), transparent 26%),
     linear-gradient(180deg, rgba(20, 14, 8, .35), transparent 20%);
 }
@@ -210,7 +218,7 @@ p { margin: 0 0 1em; }
   .hero-photo { position: relative; inset: auto; width: 100%; aspect-ratio: 4 / 5; }
   .hero-stage { --focus: .8; }
   .hero-copy { max-width: none; }
-  .hero-photo::after { background: linear-gradient(0deg, var(--floresta) 1%, rgba(47, 68, 16, .45) 14%, transparent 34%); }
+  .hero-photo::after { background: linear-gradient(0deg, var(--floresta) 1%, rgba(12, 29, 19, .45) 14%, transparent 34%); }
   .hero-copy { margin-top: -34px; position: relative; }
 }
 .status { display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px; border-radius: 999px; background: var(--surface); border: 1px solid var(--border); font-weight: 600; font-size: .95rem; color: var(--tinta); margin-bottom: 24px; }
@@ -243,7 +251,7 @@ p { margin: 0 0 1em; }
 .news-steps li::before { content: counter(passo); flex: none; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--cereja); color: #fff; font: 700 .95rem/1 var(--font-display); }
 .news-facts { display: flex; flex-wrap: wrap; gap: 12px; margin: 0 0 24px; }
 .news-facts div { padding: 10px 16px; border-radius: var(--radius-sm); background: rgba(251, 246, 236, .7); border: 1px solid rgba(78, 42, 30, .15); }
-.news-facts dt { font: 700 .72rem/1 var(--font-body); letter-spacing: .1em; text-transform: uppercase; color: var(--terracota); margin-bottom: 4px; }
+.news-facts dt { font: 700 .72rem/1 var(--font-body); letter-spacing: .1em; text-transform: uppercase; color: var(--destaque); margin-bottom: 4px; }
 .news-facts dd { margin: 0; font: 600 1.35rem/1 var(--font-display); color: var(--tinta); font-variant-numeric: tabular-nums; }
 @media (max-width: 760px) {
   .news-card { grid-template-columns: 1fr; }
@@ -283,7 +291,7 @@ p { margin: 0 0 1em; }
 .mi-name { font-weight: 600; color: var(--tinta); font-size: 1.05rem; }
 .mi-dots { flex: 1; min-width: 16px; border-bottom: 2px dotted #CDB98E; transform: translateY(-4px); }
 .mi-price { font-weight: 700; color: var(--tinta); font-variant-numeric: tabular-nums; white-space: nowrap; }
-.mi-ask { font-weight: 600; font-size: .85rem; color: var(--terracota); white-space: normal; text-align: right; max-width: 11em; line-height: 1.2; }
+.mi-ask { font-weight: 600; font-size: .85rem; color: var(--destaque); white-space: normal; text-align: right; max-width: 11em; line-height: 1.2; }
 .mi-desc { margin: 2px 0 0; color: var(--muted); font-size: .92rem; line-height: 1.45; max-width: 52ch; }
 .menu-sec-note { margin: -8px 0 24px; text-align: center; font: 700 1.3rem/1.2 var(--font-hand); color: var(--musgo); }
 .menu-note { margin: 8px 0 0; text-align: center; font-size: .88rem; color: var(--muted); }
@@ -496,3 +504,145 @@ img[data-px] { transform: translate3d(0, var(--py, 0), 0) scale(1.14); }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   img[data-px] { transform: none; }
 }
+
+
+/* =========================================================
+   TEMA TERRÁRIO — verde profundo, vidro e folhagem viva
+   ========================================================= */
+body { background: var(--noite); }
+::selection { background: var(--folha); color: var(--on-primary); }
+.glass { background: var(--surface); border: 1px solid var(--border); }
+
+/* Moldura de vidro fixa: o visitante está dentro do terrário */
+.glass-frame { position: fixed; inset: 8px; z-index: 70; pointer-events: none; border-radius: 22px;
+  border: 1px solid rgba(222, 198, 138, .42);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05), inset 0 0 140px rgba(0, 0, 0, .38), 0 0 0 9px var(--noite-3); }
+.glass-frame::before, .glass-frame::after { content: ""; position: absolute; pointer-events: none; }
+.glass-frame::before { left: 0; top: 0; width: 38vmin; height: 38vmin; border-radius: 22px 0 0 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, .13) 0%, rgba(255, 255, 255, .04) 22%, transparent 44%); }
+.glass-frame::after { right: 0; bottom: 0; width: 26vmin; height: 26vmin; border-radius: 0 0 22px 0;
+  background: linear-gradient(315deg, rgba(255, 255, 255, .07) 0%, transparent 40%); }
+
+/* Folhagem desfocada em primeiro plano (profundidade) */
+.depth { display: none; }
+@media (min-width: 1340px) {
+  .depth { display: block; position: fixed; inset: 0; z-index: 45; pointer-events: none; overflow: hidden; }
+  .depth .plant { position: absolute; filter: blur(var(--blur, 5px)); opacity: .92; will-change: transform;
+    transform: translate3d(0, calc(var(--sp, 0) * var(--k, -60px)), 0) rotate(var(--rot, 0deg)); }
+  .d-1 { left: -128px; bottom: -150px; width: 190px; --k: -70px; --blur: 6px; }
+  .d-2 { right: -128px; bottom: -110px; width: 230px; --k: -110px; --blur: 4px; --rot: -8deg; }
+  .d-3 { right: -150px; top: -70px; width: 290px; --k: 60px; --blur: 7px; --rot: 172deg; }
+}
+
+/* Plantas novas */
+.plant { position: absolute; pointer-events: none; z-index: 0; }
+.plant svg { display: block; width: 100%; height: auto; overflow: visible; }
+.motion .plant:not(.in) .lfi { transform: scale(0); }
+.motion .plant .sway { animation: sway 9s ease-in-out infinite alternate; animation-play-state: paused; transform-origin: 50% 100%; transform-box: view-box; }
+.motion .plant.live .sway { animation-play-state: running; }
+
+/* Header */
+.site-header { background: rgba(12, 29, 19, .94); -webkit-backdrop-filter: none; backdrop-filter: none; }
+.site-header.scrolled { border-bottom-color: var(--border); }
+.nav a:hover, .nav a[aria-current="true"] { background: rgba(255, 255, 255, .09); }
+.icon-btn:hover { background: rgba(255, 255, 255, .09); }
+@media (max-width: 900px) { .nav { background: var(--noite-2); } }
+
+/* Botões */
+.btn-primary { background: linear-gradient(180deg, #8FD362, #5DAE3C); color: var(--on-primary); box-shadow: 0 8px 22px -10px rgba(124, 198, 83, .8); }
+.btn-primary:hover { background: linear-gradient(180deg, #A4DE7B, #6CBB49); }
+.btn-cream { color: var(--tinta-logo); }
+.btn-cream:hover { background: var(--creme-claro); }
+.btn-ghost:hover, .chip[aria-selected="true"] { color: var(--on-primary); }
+.btn-outline-light { color: var(--fg); border-color: rgba(242, 240, 230, .5); }
+.link-arrow, .news-body a:not(.btn) { color: var(--folha-clara); }
+
+/* Hero */
+.hero h1 { color: var(--fg); }
+.hero-tag { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 18px 10px; font: 700 .78rem/1 var(--font-body); letter-spacing: .16em; text-transform: uppercase; color: var(--folha-clara); }
+.status { background: rgba(12, 29, 19, .78); }
+.status.is-open .dot { background: var(--folha); box-shadow: 0 0 0 4px rgba(124, 198, 83, .22); }
+.hero .handnote { color: var(--creme); margin-top: 26px; font-size: 1.5rem; }
+.hero-wave, .wave { fill: var(--noite); }
+
+/* Seção Imersão */
+.imersao { padding-top: clamp(48px, 7vw, 96px); }
+.imersao-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(32px, 6vw, 88px); align-items: center; }
+.imersao h2 { font-size: clamp(2.2rem, 5vw, 3.8rem); }
+.imersao h2 em { font-style: italic; color: var(--folha-clara); }
+.imersao-copy > p { color: var(--muted); font-size: 1.15rem; max-width: 46ch; }
+.camadas { list-style: none; margin: 32px 0 0; padding: 0; display: grid; gap: 12px; counter-reset: camada; }
+.camadas li { counter-increment: camada; display: grid; grid-template-columns: auto 1fr; gap: 4px 16px; padding: 16px 20px; border-radius: var(--radius); }
+.camadas li::before { content: "0" counter(camada); grid-row: span 2; align-self: center; font: 600 1.6rem/1 var(--font-display); color: var(--creme); }
+.camadas b { font: 600 1.15rem/1.2 var(--font-display); color: var(--fg); }
+.camadas span { color: var(--muted); font-size: .98rem; }
+.camadas a { color: var(--folha-clara); font-weight: 700; }
+.terrarios { position: relative; min-height: 560px; }
+.terrario { position: absolute; margin: 0; overflow: hidden; border: 1px solid rgba(222, 198, 138, .55); box-shadow: 0 30px 60px -24px rgba(0, 0, 0, .8), inset 0 0 0 1px rgba(255, 255, 255, .08); background: var(--noite-2); }
+.terrario img { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.08) contrast(1.04); }
+.terrario::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(120deg, rgba(255, 255, 255, .22) 0 7%, transparent 20%), linear-gradient(0deg, rgba(8, 21, 16, .35), transparent 30%); }
+.t-1 { left: 0; top: 0; width: 58%; aspect-ratio: 729 / 1000; border-radius: 6px; }
+.t-2 { right: 0; bottom: 0; width: 52%; aspect-ratio: 736 / 900; border-radius: 28px 28px 10px 10px; }
+.t-1 img { object-position: 50% 62%; } .t-2 img { object-position: 50% 70%; }
+.terrarios figcaption { position: absolute; left: 12px; bottom: 10px; z-index: 1; font: 700 1.25rem/1 var(--font-hand); color: var(--creme-claro); text-shadow: 0 1px 8px rgba(0, 0, 0, .7); }
+.p-im1 { left: -150px; bottom: -40px; width: 300px; opacity: .9; }
+.p-im2 { right: -60px; top: -30px; width: 260px; --rot: 0deg; }
+@media (max-width: 900px) {
+  .imersao-grid { grid-template-columns: 1fr; }
+  .terrarios { min-height: 0; aspect-ratio: 1 / 1.05; max-width: 480px; margin: 0 auto; width: 100%; }
+  .p-im1, .p-im2 { display: none; }
+}
+
+/* Novidades em vidro */
+.news-card { background: var(--surface); background-image: none; border: 1px solid var(--border); }
+.news-tag { background: var(--folha); color: var(--on-primary); }
+.news-body > p:not(.news-tag) { color: var(--muted); }
+.news-facts div { background: rgba(255, 255, 255, .06); border-color: var(--border); }
+.news-photo { border: 1px solid rgba(222, 198, 138, .45); }
+
+/* Cardápio */
+.menu { background-color: transparent; }
+.menu-board { background: rgba(18, 41, 27, .9); }
+.menu-group h3 { color: var(--creme); }
+.menu-group.is-featured h3::after, .menu-sec-note { color: var(--folha-clara); }
+.mi-dots { border-bottom-color: rgba(255, 255, 255, .22); }
+.fav { border: 1px solid var(--border); }
+
+/* Espaço / ateliê / galeria / avaliações / visite */
+.espaco { background: var(--noite-2); }
+.espaco::before { background: radial-gradient(circle at 10% 90%, rgba(88, 166, 62, .28), transparent 52%); }
+.espaco h2, .visite h2 { color: var(--fg); }
+.espaco p { color: var(--muted); }
+.features svg { color: var(--folha-clara); }
+.polaroid { background: #F4EEDD; } .polaroid figcaption { color: var(--tinta-logo); }
+.cloche, .atelie-photo, .gallery figure { border: 1px solid rgba(222, 198, 138, .3); }
+.atelie-card { background: rgba(14, 33, 22, .93); }
+.galeria { background: #0F2518; }
+.galeria .wave { --wave: var(--noite); }
+.visite { background: var(--noite-3); color: var(--fg); }
+.hours th, .hours td { border-bottom-color: rgba(255, 255, 255, .12); }
+.hours tr.today { background: rgba(124, 198, 83, .14); }
+.hours tr.today th, .hours tr.today td { color: var(--fg); }
+.hours tr.today th::after { color: var(--folha-clara); }
+.map { border: 1px solid var(--border); }
+.map iframe { filter: saturate(.8) brightness(.92); }
+
+/* Cores da vegetação por contexto */
+:root, .hero, .espaco, .visite { --f1: var(--musgo); --f2: var(--oliva); --f3: var(--folha); --stem: #3F8A3A; }
+.rib { stroke: rgba(210, 240, 190, .28); }
+.fern .rib { stroke: rgba(210, 240, 190, .3); }
+.monstera { color: var(--musgo); }
+.m-v1 { color: var(--oliva); --o: .12; }
+
+/* Chão do terrário: musgo, pedras, cascalho e terra (rodapé) */
+.ground { position: relative; background: var(--noite-3); line-height: 0; margin-bottom: -1px; }
+.ground svg { display: block; width: 100%; height: clamp(90px, 13vw, 190px); }
+.site-footer { background: #24170D; padding-bottom: 64px; }
+
+@media (max-width: 820px) {
+  .glass-frame { inset: 5px; border-radius: 16px; box-shadow: inset 0 0 60px rgba(0, 0, 0, .3), 0 0 0 6px var(--noite-3); }
+  .hero-tag { margin-left: 0; display: flex; }
+}
+.v-i1 { right: 4%; } .m-i1 { --w: 340px; --rot: 30deg; --o: .22; left: -120px; top: 8%; }
+@media (max-width: 820px) { .v-i1 { display: none; } }
+.motion .terrario[data-px].in { transform: translate3d(0, var(--py, 0), 0); }

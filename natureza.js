@@ -56,16 +56,16 @@
   }
 
   /* ---------- Samambaia (tufo de frondes) ---------- */
-  function frond(L, n, bend) {
+  function frond(L, n, bend, len = 0.3, thick = 0.2) {
     let d = "";
     for (let i = 1; i <= n; i++) {
       const t = i / (n + 1), px = bend * t * t, py = -L * t;
-      const l = L * 0.3 * Math.pow(Math.sin(Math.PI * (0.1 + 0.9 * t)), 0.8) * (1 - t * 0.3);
+      const l = L * len * Math.pow(Math.sin(Math.PI * (0.1 + 0.9 * t)), 0.8) * (1 - t * 0.3);
       for (const s of [-1, 1]) {
         const tx = px + s * l * 0.92, ty = py - l * 0.45;
         const mx = (px + tx) / 2, my = (py + ty) / 2;
         const dx = tx - px, dy = ty - py, m = Math.hypot(dx, dy) || 1;
-        const nx = (-dy / m) * l * 0.2, ny = (dx / m) * l * 0.2;
+        const nx = (-dy / m) * l * thick, ny = (dx / m) * l * thick;
         d += `M${f(px)} ${f(py)}Q${f(mx + nx)} ${f(my + ny)} ${f(tx)} ${f(ty)}Q${f(mx - nx)} ${f(my - ny)} ${f(px)} ${f(py)}Z`;
       }
     }
@@ -88,6 +88,66 @@
     }
     host.appendChild(svg);
   }
+
+  /* ---------- Plantas de folha larga, palmeira e lâminas (com degradê) ---------- */
+  function bigLeaf(parent, L, w, grad, i) {
+    const inner = el("g", { class: "lfi", style: `--i:${i}` }, parent);
+    const d = `M0 0C${f(w)} ${f(-L * 0.2)} ${f(w * 0.9)} ${f(-L * 0.78)} 0 ${f(-L)}C${f(-w * 0.9)} ${f(-L * 0.78)} ${f(-w)} ${f(-L * 0.2)} 0 0Z`;
+    el("path", { d, fill: `url(#${grad})` }, inner);
+    el("path", { d: `M0 0C${f(w)} ${f(-L * 0.2)} ${f(w * 0.9)} ${f(-L * 0.78)} 0 ${f(-L)}Z`, fill: "rgba(255,255,255,.09)" }, inner); // brilho
+    let veins = "";
+    for (let k = 1; k <= 5; k++) { const y = -L * (0.14 + k * 0.14), vw = w * 0.78 * Math.sin(Math.PI * (0.12 + k * 0.15)); veins += `M0 ${f(y)}L${f(vw)} ${f(y - L * 0.09)}M0 ${f(y)}L${f(-vw)} ${f(y - L * 0.09)}`; }
+    el("path", { d: veins, fill: "none", stroke: "rgba(8,40,20,.28)", "stroke-width": 1.2 }, inner);
+    el("path", { d: `M0 -3L0 ${f(-L + 5)}`, fill: "none", stroke: "rgba(200,240,170,.6)", "stroke-width": 1.8, "stroke-linecap": "round" }, inner);
+  }
+  function buildFicus(host) {
+    const r = rng(Number(host.dataset.seed) || 3), W = 360, H = 560;
+    const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, "aria-hidden": "true", focusable: "false" });
+    const sway = el("g", { class: "sway" }, svg);
+    const x0 = W * 0.5, cx = W * (0.36 + r() * 0.1), x1 = W * (0.56 + r() * 0.1);
+    el("path", { d: `M${x0} ${H}Q${f(cx)} ${H * 0.5} ${f(x1)} 40`, fill: "none", stroke: "#3B6B2E", "stroke-width": 5, "stroke-linecap": "round" }, sway);
+    const n = 9;
+    for (let i = 0; i < n; i++) {
+      const t = 0.16 + (0.84 * i) / (n - 1), u = 1 - t;
+      const x = u * u * x0 + 2 * u * t * cx + t * t * x1, y = u * u * H + 2 * u * t * H * 0.5 + t * t * 40;
+      const side = i % 2 ? 1 : -1, last = i === n - 1;
+      const L = (last ? 96 : 168 - t * 60) * (0.9 + r() * 0.2);
+      const ang = last ? side * 8 : side * (62 - t * 26 + (r() - 0.5) * 14);
+      const g = el("g", { class: "lf", transform: `translate(${f(x)} ${f(y)}) rotate(${f(ang)})` }, sway);
+      bigLeaf(g, L, L * 0.33, i % 3 === 0 ? "g-folha2" : "g-folha", i);
+    }
+    host.appendChild(svg);
+  }
+  function buildPalm(host) {
+    const r = rng(Number(host.dataset.seed) || 4), R = 260;
+    const svg = el("svg", { viewBox: `${-R} ${-R * 1.05} ${R * 2} ${R * 1.1}`, "aria-hidden": "true", focusable: "false" });
+    const sway = el("g", { class: "sway" }, svg), k = 6;
+    for (let i = 0; i < k; i++) {
+      const spread = -70 + (140 * i) / (k - 1), L = R * (0.7 + r() * 0.3) * (1 - Math.abs(spread) / 300);
+      const bend = (spread >= 0 ? 1 : -1) * L * (0.3 + r() * 0.25);
+      const g = el("g", { class: "lf", transform: `rotate(${f(spread + (r() - 0.5) * 10)})` }, sway);
+      const inner = el("g", { class: "lfi", style: `--i:${i}` }, g);
+      el("path", { d: frond(L, 20, bend, 0.46, 0.09), fill: "url(#g-palma)" }, inner);
+      el("path", { d: `M0 0Q0 ${f(-L / 2)} ${f(bend)} ${f(-L)}`, fill: "none", stroke: "#2F6B2C", "stroke-width": 2.2, "stroke-linecap": "round" }, inner);
+    }
+    host.appendChild(svg);
+  }
+  function buildBlades(host) {
+    const r = rng(Number(host.dataset.seed) || 6), W = 300, H = 620;
+    const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, "aria-hidden": "true", focusable: "false" });
+    const sway = el("g", { class: "sway" }, svg), n = 7;
+    for (let i = 0; i < n; i++) {
+      const ang = -30 + (60 * i) / (n - 1) + (r() - 0.5) * 8, l = H * (0.62 + r() * 0.34), w = 20 + r() * 12, c = (r() - 0.5) * 60;
+      const g = el("g", { class: "lf", transform: `translate(${W / 2} ${H}) rotate(${f(ang)})` }, sway);
+      const inner = el("g", { class: "lfi", style: `--i:${i}` }, g);
+      el("path", { d: `M${f(-w)} 0Q${f(-w * 1.15 + c)} ${f(-l * 0.55)} ${f(c * 0.6)} ${f(-l)}Q${f(w * 1.15 + c)} ${f(-l * 0.55)} ${f(w)} 0Z`, fill: "url(#g-lamina)", stroke: "rgba(200,220,120,.45)", "stroke-width": 1.5 }, inner);
+      el("path", { d: `M0 0Q${f(c)} ${f(-l * 0.55)} ${f(c * 0.6)} ${f(-l + 14)}`, fill: "none", stroke: "rgba(170,225,140,.3)", "stroke-width": w * 0.5, "stroke-linecap": "round" }, inner);
+    }
+    host.appendChild(svg);
+  }
+  document.querySelectorAll('.plant[data-plant="ficus"]').forEach(buildFicus);
+  document.querySelectorAll('.plant[data-plant="palmeira"]').forEach(buildPalm);
+  document.querySelectorAll('.plant[data-plant="laminas"]').forEach(buildBlades);
 
   document.querySelectorAll(".vine").forEach(buildVine);
   document.querySelectorAll(".fern").forEach(buildFern);
@@ -123,7 +183,7 @@
   /* ---------- Revelar ao rolar ---------- */
   const groups = [
     [".section-head", "up"], [".hero-copy > *", "up"],
-    [".news-photo", "arch"], [".news-body > *", "up"], [".favs .fav", "up"], [".menu-board", "up"],
+    [".imersao-copy > *", "left"], [".camadas li", "up"], [".terrario", "zoom"], [".news-photo", "arch"], [".news-body > *", "up"], [".favs .fav", "up"], [".menu-board", "up"],
     [".espaco-copy > *", "left"], [".features li", "up"], [".espaco-media .cloche", "arch"], [".polaroid", "pop"],
     [".atelie-photo", "arch"], [".atelie-card", "right"],
     [".gallery figure", "zoom"], [".reviews-card", "up"],
@@ -142,7 +202,7 @@
       revealables.push(n);
     });
   });
-  const decor = [...document.querySelectorAll(".vine, .fern, .monstera")];
+  const decor = [...document.querySelectorAll(".vine, .fern, .monstera, .plant")];
 
   if (reduce || !("IntersectionObserver" in window)) {
     revealables.concat(decor).forEach((n) => n.classList.add("in"));
@@ -179,6 +239,7 @@
   }, { rootMargin: "15% 0px 15% 0px" });
   new Set([...px, ...decor]).forEach((n) => vis.observe(n));
 
+  const depth = window.matchMedia("(min-width: 1340px)").matches ? document.querySelector(".depth") : null;
   let ticking = false;
   function frame() {
     ticking = false;
@@ -188,6 +249,10 @@
       const off = (b.top + b.height / 2 - vh / 2) * Number(n.dataset.px);
       n.style.setProperty("--py", `${off.toFixed(1)}px`);
     });
+    {
+      const maxS = document.documentElement.scrollHeight - vh;
+      if (depth) depth.style.setProperty("--sp", (maxS > 0 ? Math.min(1, window.scrollY / maxS) : 0).toFixed(3)); // só no contêiner: não recalcula a página inteira
+    }
     if (sideStem) {
       const max = document.documentElement.scrollHeight - vh;
       const p = max > 0 ? Math.min(1, window.scrollY / max) : 1;

@@ -26,17 +26,22 @@ As fotos têm autorização dos responsáveis. Foram recortadas dos prints do Go
 
 ## Identidade
 
-| Token | Hex | Origem |
-|---|---|---|
-| `--creme` | `#DEC68A` | disco da logomarca |
-| `--tinta` | `#4E2A1E` | lettering da logo |
-| `--cereja` | `#BA5430` | grãos de café da logo / títulos do cardápio impresso |
-| `--leaf` | `#90AE9C` | folhas da logo |
-| `--floresta` / `--musgo` / `--oliva` | `#2F4410` / `#486018` / `#6C843C` | verdes dos posts |
-| `--terracota` | `#9A4222` | grão escurecido para texto pequeno (contraste AA) |
+Tema "dentro do terrário": fundo verde profundo, superfícies de vidro e folhagem viva. A logomarca e a tipografia não mudaram.
 
-Tipografia: Fraunces (títulos), Karla (texto), Caveat (notas manuscritas, como nos posts).
-Elemento-assinatura: molduras em arco no formato de redoma de terrário. Fundo de folhagem no cardápio, ecoando a arte impressa.
+| Token | Hex | Uso |
+|---|---|---|
+| `--noite` / `--noite-2` / `--noite-3` | `#0C1D13` / `#12291B` / `#081510` | fundos |
+| `--musgo` / `--oliva` / `--folha` / `--folha-clara` | `#2C7434` / `#58A63E` / `#7CC653` / `#A9DB7C` | folhagem, botões, destaques |
+| `--creme` | `#DEC68A` | disco da logo; "latão" das molduras de vidro e títulos do cardápio |
+| `--cereja` / `--leaf` | `#BA5430` / `#90AE9C` | grãos e folhas da logo (detalhes) |
+| `--tinta` | `#F2F0E6` | texto |
+
+Tipografia: Fraunces (títulos), Karla (texto), Caveat (notas manuscritas).
+Elementos-assinatura: moldura de vidro fixa em volta da tela (`.glass-frame`), folhagem desfocada em primeiro plano (`.depth`, só ≥ 1340 px), molduras em arco, e o "chão" do terrário (musgo, pedras, cascalho e terra) antes do rodapé.
+
+Plantas geradas em `natureza.js`: `<div class="plant" data-plant="ficus|palmeira|laminas" data-seed="3"></div>`, além de `.vine`, `.fern` e `.monstera`.
+
+**Fotos de terrários** (`assets/img/terrarios/`): são imagens de referência, não terrários do café. Confirme os direitos de uso ou troque por fotos dos terrários da casa.
 
 ## Vegetação e movimento
 

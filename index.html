@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Terrarium Café · São Caetano do Sul</title>
   <meta name="description" content="Cafeteria com ambiente aconchegante, cafés exclusivos, toasts, brunch, doces e ateliê botânico. Rua João Migliani, 155 — Bairro Olímpico, São Caetano do Sul. Quarta a domingo, 10h às 18h30.">
-  <meta name="theme-color" content="#2F4410">
+  <meta name="theme-color" content="#0C1D13">
   <meta property="og:title" content="Terrarium Café">
   <meta property="og:description" content="Ambiente aconchegante, cafés exclusivos, receitas deliciosas e ateliê botânico em São Caetano do Sul.">
   <meta property="og:image" content="assets/img/logo.png">
@@ -43,6 +43,13 @@
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <!-- Moldura de vidro e folhagem em primeiro plano: o visitante está dentro do terrário -->
+  <div class="glass-frame" aria-hidden="true"></div>
+  <div class="depth" aria-hidden="true">
+    <div class="plant d-1" data-plant="laminas" data-seed="5"></div>
+    <div class="plant d-2" data-plant="ficus" data-seed="9"></div>
+    <div class="plant d-3" data-plant="palmeira" data-seed="2"></div>
+  </div>
 
   <header class="site-header" id="topo">
     <div class="container header-inner">
@@ -52,10 +59,11 @@
 
       <nav class="nav" aria-label="Principal">
         <ul id="menu-principal">
+          <li><a href="#imersao">O terrário</a></li>
           <li><a href="#novidades">Novidades</a></li>
           <li><a href="#cardapio">Cardápio</a></li>
           <li><a href="#espaco">O espaço</a></li>
-          <li><a href="#atelie">Ateliê botânico</a></li>
+          <li><a href="#atelie">Ateliê</a></li>
           <li><a href="#galeria">Galeria</a></li>
           <li><a href="#visite">Visite</a></li>
         </ul>
@@ -101,15 +109,47 @@
             <span class="dot" aria-hidden="true"></span>
             <span data-status-text>Quarta a domingo · 10h às 18h30</span>
           </p>
-          <h1>Café é melhor quando é com&nbsp;gente.</h1>
-          <p class="lead">Sente, peça um café e fique dentro de um terrário: plantas por todos os lados, cafés autorais e toasts generosos em São Caetano do Sul.</p>
+          <p class="hero-tag">Café + ateliê botânico</p>
+          <h1>Mais que um café: um terrário para&nbsp;entrar.</h1>
+          <p class="lead">Sente entre estantes de plantas e terrários, peça um café autoral e fique o tempo que quiser. Em São Caetano do Sul.</p>
           <div class="hero-ctas">
-            <a class="btn btn-cream" href="#cardapio">Ver cardápio</a>
-            <a class="btn btn-outline-light" href="#visite">Horários e endereço</a>
+            <a class="btn btn-primary" href="#imersao">Entrar no terrário</a>
+            <a class="btn btn-outline-light" href="#cardapio">Ver cardápio</a>
           </div>
+          <p class="handnote">café é melhor quando é com gente</p>
         </div>
       </div>
       <svg class="hero-wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60H1440V30C1320 4 1210 50 1080 32C940 12 860 2 720 26C590 48 480 54 340 30C210 8 110 16 0 40Z"/></svg>
+    </section>
+
+    <!-- IMERSÃO -->
+    <section class="section imersao" id="imersao" aria-labelledby="imersao-titulo">
+      <div class="flora" aria-hidden="true">
+        <div class="vine v-i1" data-len="260" data-seed="71"></div>
+        <svg class="monstera m-i1" data-px="0.1" viewBox="0 0 200 220"><use href="#monstera"/></svg>
+      </div>
+      <div class="container imersao-grid">
+        <div class="imersao-copy">
+          <p class="eyebrow">A imersão</p>
+          <h2 id="imersao-titulo">Não é só um café. É um terrário <em>do tamanho de gente</em>.</h2>
+          <p>Um terrário é um pequeno mundo vivo dentro do vidro. O Terrarium é essa ideia em escala real: verde por todos os lados, luz quente e uma mesa esperando você bem no meio.</p>
+          <ol class="camadas">
+            <li class="glass"><b>O verde</b><span>Estantes inteiras de plantas, suculentas e terrários ao redor das mesas.</span></li>
+            <li class="glass"><b>O ateliê</b><span>A <a href="https://www.instagram.com/quemamacultiva/" target="_blank" rel="noopener">@quemamacultiva</a> funciona dentro do café: terrários e plantas para levar para casa.</span></li>
+            <li class="glass"><b>A mesa</b><span>Cafés autorais, toasts e doces servidos no meio de tudo isso.</span></li>
+          </ol>
+        </div>
+        <div class="terrarios">
+          <div class="plant p-im2" data-plant="palmeira" data-seed="14" aria-hidden="true"></div>
+          <figure class="terrario t-1" data-px="-0.06">
+            <img src="assets/img/terrarios/terrario-bonsai.jpg" alt="Terrário em caixa de vidro com moldura de latão, musgo, pedras e uma pequena árvore" width="729" height="1300" loading="lazy">
+          </figure>
+          <figure class="terrario t-2" data-px="0.07">
+            <img src="assets/img/terrarios/terrario-musgo.jpg" alt="Terrário de vidro arredondado com musgo, pedras e cascalho sobre base de madeira" width="736" height="1054" loading="lazy">
+          </figure>
+          <div class="plant p-im1" data-plant="ficus" data-seed="21" aria-hidden="true"></div>
+        </div>
+      </div>
     </section>
 
     <!-- NOVIDADES (conteúdo em novidades.js) -->
@@ -303,6 +343,26 @@
     </section>
   </main>
 
+  <!-- Chão do terrário -->
+  <div class="ground" aria-hidden="true">
+    <svg viewBox="0 0 1440 190" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="g-musgo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9BD45F"/><stop offset=".6" stop-color="#4E9A33"/><stop offset="1" stop-color="#2C6A26"/></linearGradient>
+        <linearGradient id="g-pedra" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A39A8C"/><stop offset="1" stop-color="#5B5248"/></linearGradient>
+        <pattern id="p-cascalho" width="34" height="22" patternUnits="userSpaceOnUse">
+          <rect width="34" height="22" fill="#CFC6B2"/>
+          <ellipse cx="7" cy="6" rx="6" ry="4" fill="#EDE6D6"/><ellipse cx="22" cy="5" rx="7" ry="4" fill="#B8AE98"/><ellipse cx="14" cy="15" rx="7" ry="4.5" fill="#E2DAC6"/><ellipse cx="29" cy="16" rx="5" ry="4" fill="#F4EEDD"/><ellipse cx="1" cy="17" rx="4" ry="3" fill="#A79D88"/>
+        </pattern>
+      </defs>
+      <rect y="128" width="1440" height="62" fill="url(#p-cascalho)"/>
+      <path fill="#24170D" d="M0 190V168C120 158 240 176 380 166S640 156 780 168s260 10 400 0 180-8 260 0v22Z"/>
+      <path fill="url(#g-musgo)" d="M0 140C40 96 120 70 210 84c50-40 150-52 230-18 60-34 170-30 230 14 70-44 200-40 270 6 60-30 160-26 220 16 70-36 190-30 280 30v32C1320 132 1180 150 1040 140S780 128 640 142 320 150 180 140 60 150 0 146Z"/>
+      <path fill="url(#g-pedra)" d="M300 104l38-52 46 10 30 44-24 26-70 4Z"/><path fill="url(#g-pedra)" d="M392 112l34-30 40 14 12 30-52 10Z" opacity=".9"/>
+      <path fill="url(#g-pedra)" d="M930 110l28-58 54-8 40 50-18 34-80 6Z"/><path fill="url(#g-pedra)" d="M1060 118c10-26 44-34 70-22s30 34 8 44-70 8-78-22Z" opacity=".92"/>
+      <path fill="rgba(255,255,255,.14)" d="M338 52l46 10-20 14ZM958 52l54-8-26 22Z"/>
+    </svg>
+  </div>
+
   <footer class="site-footer">
     <div class="container footer-inner">
       <img src="assets/img/logo.png" alt="Terrarium Café" width="80" height="80" loading="lazy">
@@ -313,6 +373,12 @@
 
   <!-- Ramo decorativo (galho de café) -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="g-folha" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#17512A"/><stop offset=".55" stop-color="#2F8A3A"/><stop offset="1" stop-color="#6CC24A"/></linearGradient>
+      <linearGradient id="g-folha2" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#0F3B22"/><stop offset="1" stop-color="#3E9A45"/></linearGradient>
+      <linearGradient id="g-palma" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#1F6A2E"/><stop offset="1" stop-color="#8FD060"/></linearGradient>
+      <linearGradient id="g-lamina" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#0E3A22"/><stop offset=".7" stop-color="#2E7C3C"/><stop offset="1" stop-color="#63B24A"/></linearGradient>
+    </defs>
     <symbol id="monstera" viewBox="0 0 200 220">
       <mask id="monstera-cortes">
         <path fill="#fff" d="M100 214C44 196 2 146 8 84C13 34 58 6 100 34C142 6 187 34 192 84C198 146 156 196 100 214Z"/>
