@@ -52,6 +52,7 @@
 
       <nav class="nav" aria-label="Principal">
         <ul id="menu-principal">
+          <li><a href="#novidades">Novidades</a></li>
           <li><a href="#cardapio">Cardápio</a></li>
           <li><a href="#espaco">O espaço</a></li>
           <li><a href="#atelie">Ateliê botânico</a></li>
@@ -109,6 +110,17 @@
         </div>
       </div>
       <svg class="hero-wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60H1440V30C1320 4 1210 50 1080 32C940 12 860 2 720 26C590 48 480 54 340 30C210 8 110 16 0 40Z"/></svg>
+    </section>
+
+    <!-- NOVIDADES (conteúdo em novidades.js) -->
+    <section class="section news" id="novidades" aria-labelledby="novidades-titulo">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Novidades</p>
+          <h2 id="novidades-titulo">O que está rolando no café</h2>
+        </header>
+        <div class="news-list"></div>
+      </div>
     </section>
 
     <!-- CARDÁPIO -->
@@ -321,6 +333,7 @@
     </symbol>
   </svg>
 
+  <script src="novidades.js" defer></script>
   <script src="natureza.js" defer></script>
   <script src="cardapio.js" defer></script>
   <script src="main.js" defer></script>

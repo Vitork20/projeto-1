@@ -123,7 +123,7 @@
   /* ---------- Revelar ao rolar ---------- */
   const groups = [
     [".section-head", "up"], [".hero-copy > *", "up"],
-    [".favs .fav", "up"], [".menu-board", "up"],
+    [".news-photo", "arch"], [".news-body > *", "up"], [".favs .fav", "up"], [".menu-board", "up"],
     [".espaco-copy > *", "left"], [".features li", "up"], [".espaco-media .cloche", "arch"], [".polaroid", "pop"],
     [".atelie-photo", "arch"], [".atelie-card", "right"],
     [".gallery figure", "zoom"], [".reviews-card", "up"],

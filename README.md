@@ -7,6 +7,7 @@ Site estático (HTML + CSS + JS puro, sem build). Abra `index.html` no navegador
 | `index.html` | Estrutura e textos |
 | `styles.css` | Visual (tokens de cor no topo) |
 | `cardapio.js` | **Cardápio completo** — edite preços e itens aqui |
+| `novidades.js` | **Novidades** (promoções, sorteios, avisos) — edite aqui |
 | `main.js` | Abas do cardápio, status aberto/fechado, menu mobile |
 | `natureza.js` | Vegetação (trepadeiras, samambaias) gerada em SVG e animações de rolagem |
 | `assets/img/logo.png` | Logomarca (480 px, recortada da arte oficial) |
@@ -47,3 +48,7 @@ Elemento-assinatura: molduras em arco no formato de redoma de terrário. Fundo d
 ## Topo (primeira imagem)
 
 A primeira imagem é o salão (`assets/img/fotos/hero-ambiente.jpg`), não um prato: o diferencial da casa é comer dentro de um terrário. Movimento aplicado sobre a foto estática: zoom sincronizado com a rolagem (`main.js`), deriva lenta contínua, lâmpadas e LEDs "respirando" (`.glow`, posicionados em % sobre os pontos de luz reais) e partículas de luz (`.motes`). Ao trocar a foto, ajuste as posições `--x/--y` dos `.glow` e `--focus` do `.hero-stage` em `styles.css`.
+
+## Novidades
+
+A seção "Novidades" fica logo abaixo do topo e é alimentada por `novidades.js`. Cada item pode ter selo, título, texto, passos, datas, foto e link. Com `ate: "AAAA-MM-DD"`, o item sai do site sozinho depois desse dia; sem itens ativos, a seção e o link do menu somem. Menções como `@perfil` viram link para o Instagram.
