@@ -7,7 +7,8 @@ Site estático (HTML + CSS + JS puro, sem build). Abra `index.html` no navegador
 | `index.html` | Estrutura e textos |
 | `styles.css` | Visual (tokens de cor no topo) |
 | `cardapio.js` | **Cardápio completo** — edite preços e itens aqui |
-| `main.js` | Abas do cardápio, status aberto/fechado, menu mobile, animações |
+| `main.js` | Abas do cardápio, status aberto/fechado, menu mobile |
+| `natureza.js` | Vegetação (trepadeiras, samambaias) gerada em SVG e animações de rolagem |
 | `assets/img/logo.png` | Logomarca (480 px, recortada da arte oficial) |
 | `assets/img/fotos/` | Fotos do salão, ateliê e pratos |
 
@@ -35,3 +36,10 @@ As fotos têm autorização dos responsáveis. Foram recortadas dos prints do Go
 
 Tipografia: Fraunces (títulos), Karla (texto), Caveat (notas manuscritas, como nos posts).
 Elemento-assinatura: molduras em arco no formato de redoma de terrário. Fundo de folhagem no cardápio, ecoando a arte impressa.
+
+## Vegetação e movimento
+
+- Trepadeiras e samambaias são desenhadas por código (`natureza.js`), sem imagens extras. Para adicionar uma: `<div class="vine" data-len="260" data-seed="7"></div>` ou `<div class="fern" data-seed="3" data-fronds="5"></div>` e posicione via CSS. `data-seed` muda o desenho.
+- Em telas ≥ 1340 px, uma trepadeira na lateral esquerda cresce conforme a página é rolada.
+- Só `transform`/`opacity`/`clip-path` são animados; um único listener de scroll com `requestAnimationFrame`; balanço das plantas pausa fora da tela; parallax desligado no mobile.
+- Com "reduzir movimento" ativo no sistema (ou sem JavaScript), tudo aparece estático e visível.

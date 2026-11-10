@@ -72,9 +72,18 @@
     </div>
   </header>
 
+  <div class="scroll-vine" aria-hidden="true"></div>
+
   <main id="conteudo">
     <!-- HERO -->
     <section class="hero">
+      <div class="flora" aria-hidden="true">
+        <div class="vine v-h1" data-len="280" data-seed="3"></div>
+        <div class="vine v-h3" data-len="380" data-seed="5"></div>
+        <div class="vine v-h4" data-len="230" data-seed="12"></div>
+        <div class="vine v-h5" data-len="150" data-seed="31"></div>
+        <svg class="monstera m-h1" data-px="-0.1" viewBox="0 0 200 220"><use href="#monstera"/></svg>
+      </div>
       <div class="container hero-grid">
         <div class="hero-copy">
           <p class="status" data-status aria-live="polite">
@@ -91,8 +100,9 @@
 
         <div class="hero-media">
           <figure class="cloche cloche-hero">
-            <img src="assets/img/fotos/toast-parma.jpg" alt="Toast de parma com burrata e tomate confit, servido em prato com estampa de folhas" width="278" height="476" fetchpriority="high">
+            <img src="assets/img/fotos/toast-parma.jpg" alt="Toast de parma com burrata e tomate confit, servido em prato com estampa de folhas" width="278" height="476" fetchpriority="high" data-px="0.05">
           </figure>
+          <div class="fern f-hero" data-seed="4" data-fronds="5" aria-hidden="true"></div>
           <img class="hero-badge" src="assets/img/logo.png" alt="" width="132" height="132">
         </div>
       </div>
@@ -128,6 +138,9 @@
         </div>
 
         <div class="menu-board">
+          <div class="vine v-mb1" data-len="210" data-seed="21" aria-hidden="true"></div>
+          <div class="vine v-mb2" data-len="300" data-seed="17" aria-hidden="true"></div>
+          <div class="vine v-mb3" data-len="140" data-seed="40" aria-hidden="true"></div>
           <div class="chips" role="tablist" aria-label="Seções do cardápio" id="menu-tabs"></div>
           <div class="menu-panel" id="menu-panel" role="tabpanel" tabindex="0"></div>
           <p class="menu-note">Preços em reais. Doces sujeitos à disponibilidade na vitrine. Cardápio sujeito a alterações — confirme no balcão.</p>
@@ -137,6 +150,15 @@
 
     <!-- O ESPAÇO -->
     <section class="section espaco" id="espaco" aria-labelledby="espaco-titulo">
+      <svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H1440V22C1320 52 1210 8 1080 26C940 46 860 58 720 34C590 12 480 6 340 30C210 52 110 44 0 20Z"/></svg>
+      <div class="flora" aria-hidden="true">
+        <svg class="monstera m-e1" data-px="0.12" viewBox="0 0 200 220"><use href="#monstera"/></svg>
+        <svg class="monstera m-e2" data-px="-0.1" viewBox="0 0 200 220"><use href="#monstera"/></svg>
+        <svg class="monstera m-e3" data-px="0.06" viewBox="0 0 200 220"><use href="#monstera"/></svg>
+        <div class="vine v-e1" data-len="260" data-seed="9"></div>
+        <div class="vine v-e2" data-len="340" data-seed="14"></div>
+        <div class="fern f-e1" data-seed="6" data-fronds="6"></div>
+      </div>
       <div class="container espaco-grid">
         <div class="espaco-copy">
           <p class="eyebrow eyebrow-light">O espaço</p>
@@ -152,7 +174,7 @@
         </div>
         <div class="espaco-media">
           <figure class="cloche">
-            <img src="assets/img/fotos/atelie-neon.jpg" alt="Estante com plantas, terrários e o neon “Quem Ama Cultiva”" width="282" height="468" loading="lazy">
+            <img src="assets/img/fotos/atelie-neon.jpg" alt="Estante com plantas, terrários e o neon “Quem Ama Cultiva”" width="282" height="468" loading="lazy" data-px="0.05">
           </figure>
           <figure class="polaroid">
             <img src="assets/img/fotos/quem-ama-cultiva.jpg" alt="Placa “Quem Ama Cultiva” com coração e folhas" width="285" height="228" loading="lazy">
@@ -164,9 +186,15 @@
 
     <!-- ATELIÊ -->
     <section class="section atelie" id="atelie" aria-labelledby="atelie-titulo">
+      <div class="flora" aria-hidden="true">
+        <div class="vine v-a1" data-len="300" data-seed="19"></div>
+        <div class="vine v-a2" data-len="190" data-seed="33"></div>
+        <svg class="monstera m-a1" data-px="0.1" viewBox="0 0 200 220"><use href="#monstera"/></svg>
+      </div>
       <div class="container">
+        <div class="fern f-a1" data-seed="15" data-fronds="6" aria-hidden="true"></div>
         <figure class="atelie-photo">
-          <img src="assets/img/fotos/atelie-estante.jpg" alt="Estante do ateliê botânico com terrários de vidro, vasos, suculentas e plantas pendentes" width="985" height="772" loading="lazy">
+          <img src="assets/img/fotos/atelie-estante.jpg" alt="Estante do ateliê botânico com terrários de vidro, vasos, suculentas e plantas pendentes" width="985" height="772" loading="lazy" data-px="0.06">
         </figure>
         <div class="atelie-card">
           <p class="eyebrow">Ateliê botânico</p>
@@ -179,6 +207,12 @@
 
     <!-- GALERIA -->
     <section class="section galeria" id="galeria" aria-labelledby="galeria-titulo">
+      <svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H1440V22C1320 52 1210 8 1080 26C940 46 860 58 720 34C590 12 480 6 340 30C210 52 110 44 0 20Z"/></svg>
+      <div class="flora" aria-hidden="true">
+        <div class="fern f-g1" data-seed="22" data-fronds="5"></div>
+        <div class="fern f-g2" data-seed="29" data-fronds="6"></div>
+        <div class="vine v-g1" data-len="200" data-seed="44"></div>
+      </div>
       <div class="container">
         <header class="section-head section-head-row">
           <div>
@@ -214,6 +248,13 @@
 
     <!-- VISITE -->
     <section class="section visite" id="visite" aria-labelledby="visite-titulo">
+      <svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H1440V22C1320 52 1210 8 1080 26C940 46 860 58 720 34C590 12 480 6 340 30C210 52 110 44 0 20Z"/></svg>
+      <div class="flora" aria-hidden="true">
+        <svg class="monstera m-v1" data-px="-0.1" viewBox="0 0 200 220"><use href="#monstera"/></svg>
+        <div class="vine v-v1" data-len="230" data-seed="52"></div>
+        <div class="fern f-v1" data-seed="37" data-fronds="6"></div>
+        <div class="fern f-v2" data-seed="48" data-fronds="5"></div>
+      </div>
       <div class="container visite-grid">
         <div class="visite-info">
           <p class="eyebrow eyebrow-light">Visite</p>
@@ -258,6 +299,19 @@
 
   <!-- Ramo decorativo (galho de café) -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="monstera" viewBox="0 0 200 220">
+      <mask id="monstera-cortes">
+        <path fill="#fff" d="M100 214C44 196 2 146 8 84C13 34 58 6 100 34C142 6 187 34 192 84C198 146 156 196 100 214Z"/>
+        <g fill="#000">
+          <path d="M0 58L70 86L2 76Z"/><path d="M-4 100L74 112L0 120Z"/><path d="M6 146L78 138L24 168Z"/>
+          <path d="M200 58L130 86L198 76Z"/><path d="M204 100L126 112L200 120Z"/><path d="M194 146L122 138L176 168Z"/>
+          <ellipse cx="78" cy="62" rx="7" ry="12" transform="rotate(-24 78 62)"/><ellipse cx="122" cy="62" rx="7" ry="12" transform="rotate(24 122 62)"/>
+          <ellipse cx="84" cy="164" rx="5" ry="10" transform="rotate(28 84 164)"/><ellipse cx="116" cy="164" rx="5" ry="10" transform="rotate(-28 116 164)"/>
+        </g>
+        <path d="M100 36V208" stroke="#000" stroke-width="2.5" stroke-opacity=".45"/>
+      </mask>
+      <rect width="200" height="220" fill="currentColor" mask="url(#monstera-cortes)"/>
+    </symbol>
     <symbol id="ramo" viewBox="0 0 400 60">
       <path d="M10 40 C 90 20, 170 50, 250 30 S 370 20, 390 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
       <g fill="var(--leaf)"><ellipse cx="80" cy="24" rx="16" ry="6" transform="rotate(-25 80 24)"/><ellipse cx="160" cy="48" rx="15" ry="5.5" transform="rotate(20 160 48)"/><ellipse cx="300" cy="16" rx="15" ry="5.5" transform="rotate(-15 300 16)"/></g>
@@ -265,6 +319,7 @@
     </symbol>
   </svg>
 
+  <script src="natureza.js" defer></script>
   <script src="cardapio.js" defer></script>
   <script src="main.js" defer></script>
 </body>

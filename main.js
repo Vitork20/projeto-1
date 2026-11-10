@@ -109,7 +109,7 @@
   });
 
   /* ------------------------------------------------------------
-     HEADER + LINK ATIVO + REVELAR AO ROLAR
+     HEADER + LINK ATIVO (animações em natureza.js)
      ------------------------------------------------------------ */
   const header = document.querySelector(".site-header");
   const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 8);
@@ -125,13 +125,4 @@
     });
   }, { rootMargin: "-45% 0px -50% 0px" });
   document.querySelectorAll("main section[id]").forEach((s) => spy.observe(s));
-
-  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (!reduce && "IntersectionObserver" in window) {
-    const targets = document.querySelectorAll(".section-head, .espaco-copy, .espaco-media, .atelie-card, .favs .fav, .gallery figure, .reviews-card, .visite-grid > *");
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } });
-    }, { rootMargin: "0px 0px -10% 0px" });
-    targets.forEach((t) => { t.classList.add("reveal"); io.observe(t); });
-  }
 })();

@@ -286,12 +286,138 @@ address { font-style: normal; font-size: 1.15rem; margin-bottom: 24px; }
 .footer-inner p { margin: 0; }
 .small { font-size: .9rem; opacity: .8; }
 
-/* ---------- Revelar ao rolar ---------- */
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
-.reveal.in { opacity: 1; transform: none; }
+/* =========================================================
+   VEGETAÇÃO (gerada em natureza.js) + ANIMAÇÕES DE ROLAGEM
+   ========================================================= */
+:root { --f1: var(--musgo); --f2: var(--oliva); --f3: var(--leaf); --stem: var(--musgo); --grow: cubic-bezier(.3, 1.35, .5, 1); }
+.section, .hero { position: relative; overflow-x: clip; }
+.section > .container, .hero > .container { position: relative; z-index: 1; }
+.flora { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+
+/* Trepadeiras */
+.vine { position: absolute; top: 0; width: 90px; pointer-events: none; z-index: 0; }
+.vine svg { display: block; overflow: visible; }
+.vine .stem, .scroll-vine .stem { fill: none; stroke: var(--stem); stroke-width: 1.6; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 0; }
+.c1 { fill: var(--f1); } .c2 { fill: var(--f2); } .c3 { fill: var(--f3); }
+.rib { fill: none; stroke: rgba(30, 20, 10, .22); stroke-width: 1; stroke-linecap: round; }
+.berry { fill: var(--cereja); }
+.sway { transform-origin: 45px 0; transform-box: view-box; }
+
+/* Samambaias */
+.fern { position: absolute; width: var(--w, 280px); aspect-ratio: 2 / 1.1; pointer-events: none; z-index: 0; }
+.fern svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.fern .rib { stroke: rgba(30, 20, 10, .3); stroke-width: 1.4; }
+
+/* Costela-de-adão */
+.monstera { position: absolute; width: var(--w, 260px); aspect-ratio: 200 / 220; color: var(--f2); opacity: var(--o, .35); transform: translate3d(0, var(--py, 0), 0) rotate(var(--rot, 0deg)); pointer-events: none; }
+
+/* Borda orgânica entre seções */
+.wave { position: absolute; top: -1px; left: 0; width: 100%; height: clamp(28px, 4.5vw, 60px); fill: var(--wave, var(--papel)); z-index: 1; pointer-events: none; transform-origin: top; }
+
+/* Posições — hero */
+.v-h1 { left: -34px; }
+.v-h3 { right: -4px; } .v-h4 { right: 62px; } .v-h5 { right: 150px; }
+.m-h1 { --w: 300px; --rot: -24deg; --o: .16; right: -90px; bottom: -70px; color: var(--musgo); }
+.hero-media .fern { --w: 230px; right: -64px; bottom: -14px; z-index: 2; }
+@media (min-width: 1340px) { .v-h1 { display: none; } } /* a trepadeira lateral ocupa esse lado */
+
+/* Posições — cardápio */
+.menu-board { position: relative; }
+.v-mb1 { left: -38px; top: -4px; } .v-mb2 { right: -40px; top: -4px; } .v-mb3 { right: 26px; top: -4px; }
+@media (max-width: 1100px) { .menu-board .vine { display: none; } }
+
+/* Posições — espaço (sobre verde escuro) */
+.espaco { --f1: var(--oliva); --f2: color-mix(in srgb, var(--oliva) 70%, var(--creme)); --f3: var(--leaf); --stem: var(--oliva); }
+.espaco .wave, .visite .wave { --wave: var(--papel); }
+.galeria .wave { --wave: var(--papel); }
+.m-e1 { --w: 420px; --rot: 28deg; --o: .28; left: -130px; bottom: -150px; color: var(--musgo); }
+.m-e2 { --w: 300px; --rot: -150deg; --o: .22; right: -80px; top: -60px; color: var(--musgo); }
+.m-e3 { --w: 170px; --rot: 70deg; --o: .2; left: 44%; bottom: -60px; color: var(--oliva); }
+.v-e1 { left: 47%; } .v-e2 { right: 1%; }
+.f-e1 { --w: 300px; right: 30%; bottom: -8px; opacity: .8; }
+
+/* Posições — ateliê */
+.v-a1 { right: 3%; } .v-a2 { right: 11%; }
+.m-a1 { --w: 280px; --rot: -30deg; --o: .14; right: -70px; bottom: 4%; color: var(--musgo); }
+.f-a1 { --w: 320px; left: -70px; bottom: -22px; z-index: 2; }
+
+/* Posições — galeria */
+.f-g1 { --w: 300px; left: -70px; bottom: -10px; } .f-g2 { --w: 340px; right: -80px; bottom: -10px; }
+.v-g1 { right: 32%; top: 20px; }
+
+/* Posições — visite (sobre marrom) */
+.visite { --f1: var(--oliva); --f2: var(--leaf); --f3: color-mix(in srgb, var(--oliva) 60%, var(--creme)); --stem: var(--oliva); }
+.m-v1 { --w: 340px; --rot: 160deg; --o: .1; right: -90px; top: -70px; color: var(--creme); }
+.v-v1 { left: 45%; }
+.f-v1 { --w: 260px; left: -60px; bottom: -8px; } .f-v2 { --w: 300px; right: -60px; bottom: -8px; }
+
+/* Trepadeira lateral que cresce com a rolagem */
+.scroll-vine { display: none; }
+@media (min-width: 1340px) {
+  .scroll-vine { display: block; position: fixed; left: 0; top: 0; height: 100vh; width: 7vh; z-index: 40; pointer-events: none; }
+  .scroll-vine svg { height: 100%; width: 100%; overflow: visible; display: block; }
+  .scroll-vine .stem { stroke-width: 2; }
+}
+
+/* Detalhe de folha antes dos sobretítulos */
+.eyebrow::before { content: ""; display: inline-block; width: 22px; height: 12px; margin-right: 8px; vertical-align: -1px; background: currentColor; opacity: .8;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 12'%3E%3Cpath d='M0 11C2 4 7 1 11 6C7 10 3 11 0 11ZM22 1C20 8 15 11 11 6C15 2 19 1 22 1Z'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 12'%3E%3Cpath d='M0 11C2 4 7 1 11 6C7 10 3 11 0 11ZM22 1C20 8 15 11 11 6C15 2 19 1 22 1Z'/%3E%3C/svg%3E") center / contain no-repeat; }
+
+/* Parallax interno das fotos */
+img[data-px] { transform: translate3d(0, var(--py, 0), 0) scale(1.14); }
+
+/* Itens do cardápio entram em cascata ao trocar de aba */
+.menu-group li { animation: item-in .45s var(--ease) both; }
+.menu-group li:nth-child(1) { animation-delay: 0ms; } .menu-group li:nth-child(2) { animation-delay: 30ms; }
+.menu-group li:nth-child(3) { animation-delay: 60ms; } .menu-group li:nth-child(4) { animation-delay: 90ms; }
+.menu-group li:nth-child(5) { animation-delay: 120ms; } .menu-group li:nth-child(6) { animation-delay: 150ms; }
+.menu-group li:nth-child(7) { animation-delay: 180ms; } .menu-group li:nth-child(n+8) { animation-delay: 210ms; }
+@keyframes item-in { from { opacity: 0; transform: translateY(8px); } }
+
+/* ---------- Estados animados (só com JS ativo e sem "reduzir movimento") ---------- */
+.motion [data-reveal] { transition: opacity .8s var(--ease) var(--d, 0ms), transform .9s var(--ease) var(--d, 0ms), clip-path 1.2s var(--ease) var(--d, 0ms); }
+.motion [data-reveal]:not(.in) { opacity: 0; }
+.motion [data-reveal="up"]:not(.in) { transform: translateY(28px); }
+.motion [data-reveal="left"]:not(.in) { transform: translateX(-32px); }
+.motion [data-reveal="right"]:not(.in) { transform: translateX(32px); }
+.motion [data-reveal="zoom"]:not(.in) { transform: scale(.92); }
+.motion [data-reveal="pop"]:not(.in) { transform: rotate(-14deg) scale(.7); }
+.motion [data-reveal="pop"] { transition-timing-function: var(--grow); transition-delay: .35s; }
+.motion [data-reveal="arch"] { clip-path: circle(130% at 50% 100%); }
+.motion [data-reveal="arch"]:not(.in) { opacity: 1; clip-path: circle(0% at 50% 100%); }
+.motion [data-reveal="wave"]:not(.in) { opacity: 1; transform: scaleY(.15); }
+
+/* vegetação brota quando entra na tela */
+.motion .vine .stem { transition: stroke-dashoffset 1.9s ease-out; }
+.motion .vine:not(.in) .stem { stroke-dashoffset: 1; }
+.motion .lfi, .motion .fri { transition: transform .8s var(--grow) calc(var(--i, 0) * 85ms + 250ms); }
+.motion .vine:not(.in) .lfi, .motion .fern:not(.in) .fri { transform: scale(0); }
+.motion .monstera { transition: opacity 1.4s var(--ease); }
+.motion .monstera:not(.in) { opacity: 0; }
+.motion .scroll-vine .stem { stroke-dashoffset: 1; }
+.motion .scroll-vine .lfi { transform: scale(0); transition: transform .6s var(--grow); }
+.motion .scroll-vine .on .lfi { transform: scale(1); }
+
+/* balanço suave, pausado fora da tela */
+.motion .vine .sway { animation: sway var(--s, 7s) ease-in-out infinite alternate; animation-play-state: paused; }
+.motion .fern svg { animation: sway-base 8s ease-in-out infinite alternate; animation-play-state: paused; transform-origin: 50% 100%; }
+.motion .live .sway, .motion .live.fern svg { animation-play-state: running; }
+@keyframes sway { from { transform: rotate(-1.6deg); } to { transform: rotate(1.6deg); } }
+@keyframes sway-base { from { transform: rotate(-1.2deg); } to { transform: rotate(1.2deg); } }
+
+@media (max-width: 820px) {
+  .v-h4, .v-h5, .v-e1, .v-e2, .v-a2, .v-g1, .v-v1, .m-e3, .m-a1 { display: none; }
+  .vine { transform: scale(.78); transform-origin: top center; }
+  .v-h1 { left: -30px; } .v-h3 { right: -26px; }
+  .fern { --w: 200px !important; }
+  .hero-media .fern { --w: 150px !important; right: -40px; }
+  .monstera { --w: 220px !important; }
+  img[data-px] { transform: none; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
-  .reveal { opacity: 1; transform: none; }
+  img[data-px] { transform: none; }
 }
