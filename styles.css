@@ -578,18 +578,25 @@ body { background: var(--noite); }
 .camadas span { color: var(--muted); font-size: .98rem; }
 .camadas a { color: var(--folha-clara); font-weight: 700; }
 .terrarios { position: relative; min-height: 560px; }
-.terrario { position: absolute; margin: 0; overflow: hidden; border: 1px solid rgba(222, 198, 138, .55); box-shadow: 0 30px 60px -24px rgba(0, 0, 0, .8), inset 0 0 0 1px rgba(255, 255, 255, .08); background: var(--noite-2); }
-.terrario img { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.08) contrast(1.04); }
-.terrario::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(120deg, rgba(255, 255, 255, .22) 0 7%, transparent 20%), linear-gradient(0deg, rgba(8, 21, 16, .35), transparent 30%); }
-.t-1 { left: 0; top: 0; width: 58%; aspect-ratio: 729 / 1000; border-radius: 6px; }
-.t-2 { right: 0; bottom: 0; width: 52%; aspect-ratio: 736 / 900; border-radius: 28px 28px 10px 10px; }
-.t-1 img { object-position: 50% 62%; } .t-2 img { object-position: 50% 70%; }
+.terrario { position: absolute; margin: 0; }
+.terrario::before { /* luz verde atrás do vidro */
+  content: ""; position: absolute; left: 50%; top: 52%; width: 120%; aspect-ratio: 1; translate: -50% -50%; z-index: -1;
+  border-radius: 50%; background: radial-gradient(circle, rgba(124, 198, 83, .26) 0%, rgba(124, 198, 83, .08) 40%, transparent 68%); }
+.terrario::after { /* sombra no "chão" */
+  content: ""; position: absolute; left: 14%; right: 14%; bottom: -2%; height: 5%; z-index: -1;
+  border-radius: 50%; background: radial-gradient(closest-side, rgba(0, 0, 0, .65), transparent); }
+.terrario .float { animation: flutua 7s ease-in-out infinite alternate; }
+.t-2 .float { animation-duration: 8.5s; animation-delay: -3s; }
+.terrario img { width: 100%; height: auto; display: block; filter: drop-shadow(0 18px 30px rgba(0, 0, 0, .45)); }
+@keyframes flutua { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(0, -14px, 0); } }
+.t-1 { left: 0; top: 0; width: 56%; }
+.t-2 { right: 2%; bottom: 0; width: 40%; }
 .terrarios figcaption { position: absolute; left: 12px; bottom: 10px; z-index: 1; font: 700 1.25rem/1 var(--font-hand); color: var(--creme-claro); text-shadow: 0 1px 8px rgba(0, 0, 0, .7); }
 .p-im1 { left: -150px; bottom: -40px; width: 300px; opacity: .9; }
 .p-im2 { right: -60px; top: -30px; width: 260px; --rot: 0deg; }
 @media (max-width: 900px) {
   .imersao-grid { grid-template-columns: 1fr; }
-  .terrarios { min-height: 0; aspect-ratio: 1 / 1.05; max-width: 480px; margin: 0 auto; width: 100%; }
+  .terrarios { min-height: 0; aspect-ratio: 1 / 1.15; max-width: 440px; margin: 0 auto; width: 100%; }
   .p-im1, .p-im2 { display: none; }
 }
 

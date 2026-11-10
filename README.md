@@ -41,7 +41,7 @@ Elementos-assinatura: moldura de vidro fixa em volta da tela (`.glass-frame`), f
 
 Plantas geradas em `natureza.js`: `<div class="plant" data-plant="ficus|palmeira|laminas" data-seed="3"></div>`, além de `.vine`, `.fern` e `.monstera`.
 
-**Fotos de terrários** (`assets/img/terrarios/`): são imagens de referência, não terrários do café. Confirme os direitos de uso ou troque por fotos dos terrários da casa.
+**Terrários** (`assets/img/terrarios/`): recortes com fundo transparente (WebP), exibidos flutuando sobre o fundo, sem moldura. São imagens de referência, não terrários do café: confirme os direitos de uso ou troque por recortes dos terrários da casa, mantendo o fundo transparente.
 
 ## Vegetação e movimento
 
