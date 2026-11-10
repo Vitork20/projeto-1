@@ -43,3 +43,7 @@ Elemento-assinatura: molduras em arco no formato de redoma de terrário. Fundo d
 - Em telas ≥ 1340 px, uma trepadeira na lateral esquerda cresce conforme a página é rolada.
 - Só `transform`/`opacity`/`clip-path` são animados; um único listener de scroll com `requestAnimationFrame`; balanço das plantas pausa fora da tela; parallax desligado no mobile.
 - Com "reduzir movimento" ativo no sistema (ou sem JavaScript), tudo aparece estático e visível.
+
+## Topo (primeira imagem)
+
+A primeira imagem é o salão (`assets/img/fotos/hero-ambiente.jpg`), não um prato: o diferencial da casa é comer dentro de um terrário. Movimento aplicado sobre a foto estática: zoom sincronizado com a rolagem (`main.js`), deriva lenta contínua, lâmpadas e LEDs "respirando" (`.glow`, posicionados em % sobre os pontos de luz reais) e partículas de luz (`.motes`). Ao trocar a foto, ajuste as posições `--x/--y` dos `.glow` e `--focus` do `.hero-stage` em `styles.css`.

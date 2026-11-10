@@ -122,9 +122,9 @@
      quadro (interpolação), então não há saltos nem com roda de mouse.
      ------------------------------------------------------------ */
   const hero = document.querySelector(".hero");
-  const heroImg = document.querySelector(".hero-img");
+  const heroImg = document.querySelector(".hero-stage");
   if (hero && heroImg && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    const MAX = 0.5; // +50% no fim do topo
+    const MAX = 0.4; // +40% no fim do topo
     let cur = 1, target = 1, raf = 0, limit = hero.offsetHeight;
     const tick = () => {
       cur += (target - cur) * 0.12;
@@ -141,6 +141,10 @@
     window.addEventListener("scroll", aim, { passive: true });
     window.addEventListener("resize", () => { limit = hero.offsetHeight; aim(); }, { passive: true });
     aim();
+  }
+  // luzes e partículas do topo só animam enquanto ele está na tela
+  if (hero && "IntersectionObserver" in window) {
+    new IntersectionObserver(([en]) => hero.classList.toggle("paused", !en.isIntersecting)).observe(hero);
   }
 
   const links = [...document.querySelectorAll(".nav a")];
