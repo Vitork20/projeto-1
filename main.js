@@ -116,6 +116,33 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
+  /* ------------------------------------------------------------
+     ZOOM DA FOTO DO TOPO, SINCRONIZADO COM A ROLAGEM
+     Desce = aproxima; sobe = afasta. O valor é suavizado quadro a
+     quadro (interpolação), então não há saltos nem com roda de mouse.
+     ------------------------------------------------------------ */
+  const hero = document.querySelector(".hero");
+  const heroImg = document.querySelector(".hero-img");
+  if (hero && heroImg && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const MAX = 0.5; // +50% no fim do topo
+    let cur = 1, target = 1, raf = 0, limit = hero.offsetHeight;
+    const tick = () => {
+      cur += (target - cur) * 0.12;
+      if (Math.abs(target - cur) < 0.0004) { cur = target; raf = 0; }
+      else raf = requestAnimationFrame(tick);
+      heroImg.style.setProperty("--zoom", cur.toFixed(4));
+    };
+    const aim = () => {
+      if (window.scrollY > limit + 200 && target === 1 + MAX) return; // topo já saiu da tela
+      const p = Math.min(1, Math.max(0, window.scrollY / limit));
+      target = 1 + p * MAX;
+      if (!raf) raf = requestAnimationFrame(tick);
+    };
+    window.addEventListener("scroll", aim, { passive: true });
+    window.addEventListener("resize", () => { limit = hero.offsetHeight; aim(); }, { passive: true });
+    aim();
+  }
+
   const links = [...document.querySelectorAll(".nav a")];
   const spy = new IntersectionObserver((entries) => {
     entries.forEach((en) => {
