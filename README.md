@@ -52,7 +52,9 @@ Plantas geradas em `natureza.js`: `<div class="plant" data-plant="ficus|palmeira
 
 ## Topo (primeira imagem)
 
-A primeira imagem é o salão (`assets/img/fotos/hero-ambiente.jpg`), não um prato: o diferencial da casa é comer dentro de um terrário. Movimento aplicado sobre a foto estática: zoom sincronizado com a rolagem (`main.js`), deriva lenta contínua, lâmpadas e LEDs "respirando" (`.glow`, posicionados em % sobre os pontos de luz reais) e partículas de luz (`.motes`). Ao trocar a foto, ajuste as posições `--x/--y` dos `.glow` e `--focus` do `.hero-stage` em `styles.css`.
+A primeira imagem é o salão com as mesas integradas à estante de plantas (`assets/img/fotos/hero-salao.jpg`, 1136 px, e `hero-salao-2x.jpg`, 2272 px, ampliada com IA para telas grandes e retina; o navegador escolhe via `srcset`). O diferencial da casa é comer dentro de um terrário, então a foto mostra o ambiente inteiro, não um prato.
+
+Movimento sobre a foto estática: zoom sincronizado com a rolagem (`main.js`), deriva lenta, brilhos suaves sobre o terrário de vidro e as prateleiras (`.glow`, posicionados em % da foto) e partículas de luz (`.motes`). Ao trocar a foto, ajuste: proporção em `.hero-stage` (`calc(100cqh * L / A)` e `aspect-ratio: L / A`), enquadramento vertical em `--focus` (0 = mostra o topo, 1 = mostra a base) e as posições `--x/--y` dos `.glow`.
 
 ## Novidades
 
